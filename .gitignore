@@ -1,0 +1,17 @@
+# Ignore all .log files
+*.log
+
+# Ignore all files in any directory named temp
+temp/
+
+# Ignore virtual envinronment folder
+.venv/
+.env/
+
+# Ignore backup files
+*.bak
+*~
+
+# Ignore python cache folder
+__pycache__/
+
