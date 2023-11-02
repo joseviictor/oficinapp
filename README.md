@@ -29,6 +29,6 @@ Este README documenta as etapas necessárias para colocar seu aplicativo em func
 
 ### Com quem devo falar?
 
-* José Victor Santos: @joseviictor
-* Marco Valente: @MarcoValenteF
-* Rodrigo Pimenta: @RodrigoMartinsPimenta
+* José Victor Santos (Dev & Repo Administrator): <a56278@ualg.pt>
+* Marco Valente (Dev): <a79302@ualg.pt>
+* Rodrigo Pimenta (Dev): <a79311@ualg.pt>
