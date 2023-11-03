@@ -2,6 +2,8 @@ from clientes import cria_novo_cliente, imprime_lista_de_clientes
 from faturas import cria_nova_fatura, imprime_lista_de_faturas
 from io_ficheiros import (carrega_as_listas_dos_ficheiros, guarda_as_listas_em_ficheiros)
 from io_terminal import pause, pergunta_id
+from materiais import cria_novo_material, imprime_lista_de_materiais, remover_material
+from servicos import cria_novo_serviço, imprime_lista_de_serviços, remover_serviço
 from veiculos import cria_novo_veiculo, imprime_lista_de_veiculos
 from ordens_reparacao import cria_nova_or, imprime_lista_de_or
 
@@ -244,41 +246,37 @@ def menu_produtos():
 
         elif op == "1":
             """TODO Implementar criação de material"""
-            #novo_material = cria_nova_material()
-            #lista_de_materiais.append(novo_material)
+            novo_material = cria_novo_material()
+            lista_de_materiais.append(novo_material)
 
         elif op == "2":
             """TODO Implementar atualização de material"""
             pass
 
         elif op == "3":
-            id_material = pergunta_id(questao="> ID do material: ", lista=lista_de_materiais, mostra_lista=True)
-            if id_material is not None:
-                lista_de_materiais.pop(id_material)
+            lista_de_materiais = remover_material(lista_de_materiais)
             
         elif op == "4":
             """TODO Implementar listagem de material"""
-            #imprime_lista_de_materiais(lista_de_materiais)
-            #pause()
+            imprime_lista_de_materiais(lista_de_materiais)
+            pause()
         
         elif op == "5":
             """TODO Implementar criação de serviço"""
-            #novo_serviço = cria_nova_serviço()
-            #lista_de_serviços.append(novo_serviço)
+            novo_serviço = cria_novo_serviço()
+            lista_de_serviços.append(novo_serviço)
 
         elif op == "6":
             """TODO Implementar atualização de serviço"""
             pass
 
         elif op == "7":
-            id_serviço = pergunta_id(questao="> ID do serviço: ", lista=lista_de_serviços, mostra_lista=True)
-            if id_serviço is not None:
-                lista_de_serviços.pop(id_serviço)
+            lista_de_serviços = remover_serviço(lista_de_serviços)
             
         elif op == "8":
             """TODO Implementar listagem de serviço"""
-            #imprime_lista_de_serviços(lista_de_serviços)
-            #pause()
+            imprime_lista_de_serviços(lista_de_serviços)
+            pause()
 
 if __name__ == "__main__":
     menu()
