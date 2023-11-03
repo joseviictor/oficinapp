@@ -46,45 +46,19 @@ def menu():
             lista_de_veiculos, lista_de_clientes, lista_de_faturas = carrega_as_listas_dos_ficheiros()
 
         elif op == "1":
-            novo_cliente = cria_novo_cliente()
-            if novo_cliente is not None:
-                lista_de_clientes.append(novo_cliente)
+            menu_cliente()
 
         elif op == "2":
-            novo_veiculo = cria_novo_veiculo()
-            if novo_veiculo is not None:
-                lista_de_veiculos.append(novo_veiculo)
+            menu_veiculo()
 
         elif op == "3":
-            if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
-                print("Não há clientes ou veiculos registados...")
-                continue
-            nova_or = cria_nova_or(lista_de_clientes, lista_de_veiculos)
-            lista_de_or.append(nova_or)
+            menu_or()
 
         elif op == "4":
-            if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
-                print("Não há clientes ou veiculos registados...")
-                continue
-
-            nova_fatura = cria_nova_fatura(lista_de_clientes, lista_de_veiculos)
-            lista_de_faturas.append(nova_fatura)
+            menu_fatura()
 
         elif op == "5":
-            imprime_lista_de_clientes(lista_de_clientes)
-            pause()
-
-        elif op == "6":
-            imprime_lista_de_veiculos(lista_de_veiculos)
-            pause()
-
-        elif op == "7":
-            imprime_lista_de_or(lista_de_or)
-            pause()
-
-        elif op == "8":
-            imprime_lista_de_faturas(lista_de_faturas)
-            pause()
+            menu_produtos()
 
 def menu_cliente():
     while True:
