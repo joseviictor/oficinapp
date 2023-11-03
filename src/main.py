@@ -15,6 +15,7 @@ lista_de_materiais = []
 lista_de_serviços = []
 
 def menu():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
     """Menu principal da aplicação"""
 
     lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços = carrega_as_listas_dos_ficheiros()
@@ -58,6 +59,8 @@ def menu():
             menu_produtos()
 
 def menu_cliente():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -96,6 +99,8 @@ def menu_cliente():
             pause()
 
 def menu_veiculo():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -136,6 +141,8 @@ def menu_veiculo():
             pause()
 
 def menu_or():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -178,6 +185,8 @@ def menu_or():
             pause()
 
 def menu_fatura():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -219,6 +228,8 @@ def menu_fatura():
             pause()
 
 def menu_produtos():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -241,7 +252,6 @@ def menu_produtos():
             break
 
         elif op == "1":
-            """TODO Implementar criação de material"""
             novo_material = cria_novo_material()
             lista_de_materiais.append(novo_material)
 
