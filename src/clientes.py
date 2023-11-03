@@ -7,13 +7,13 @@ def cria_novo_cliente():
 
     :return: dicionario com o novo cliente, {"nome": <<nome>>, "nif": <<nif>>, ...}
     """
-    nome = input("  > Nome: ").capitalize()
-    nif = input("   > NIF: ").upper()
-    cc = input("    > CC: ").upper()
-    dob = input("   > Data de Nascimento: ")
-    morada = input("    > Morada: ")
-    telefone = input("  > Telefone: ")
-    email = input(" > Email: ").lower()
+    nome = input("> Nome: ").capitalize()
+    nif = input("> NIF: ").upper()
+    cc = input("> CC: ").upper()
+    dob = input("> Data de Nascimento: ")
+    morada = input("> Morada: ")
+    telefone = input("> Telefone: ")
+    email = input("> Email: ").lower()
         
     cliente = {"nome": nome,
                "nif": nif,
