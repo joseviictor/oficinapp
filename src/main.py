@@ -1,5 +1,5 @@
 from clientes import cria_novo_cliente, imprime_lista_de_clientes
-from faturas import cria_nova_fatura, imprime_lista_de_faturas
+from faturas import cria_nova_fatura, imprime_lista_de_faturas, remover_fatura
 from io_ficheiros import (carrega_as_listas_dos_ficheiros, guarda_as_listas_em_ficheiros)
 from io_terminal import pause, pergunta_id
 from materiais import cria_novo_material, imprime_lista_de_materiais, remover_material
@@ -214,9 +214,7 @@ def menu_fatura():
             pass
 
         elif op == "3":
-            id_fatura = pergunta_id(questao="> ID da fatura: ", lista=lista_de_faturas, mostra_lista=True)
-            if id_fatura is not None:
-                lista_de_faturas.pop(id_fatura)
+            lista_de_faturas = remover_fatura(lista_de_faturas)
             
         elif op == "4":
             imprime_lista_de_faturas(lista_de_faturas)
