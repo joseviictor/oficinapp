@@ -8,14 +8,28 @@ def cria_novo_veiculo():
     :return: dicionario com um veiculo na forma
         {"marca": <<marca>>, "matricula": <<matricula>>, ...}
     """
+    
+    matricula = input("> Matricula: ").upper()
+    marca = input("> Marca: ").capitalize()
+    modelo = input("> Modelo: ").capitalize()
+    ano = input("> Ano: ")
+    combustivel = input("> Combustivel: ").lower()
+    kms = input("> Kms: ")
+    cilindrada = input("> Cilindrada: ")
+    cor = input("> Cor: ").lower()
+    observacoes = input("> Observações: ")
 
-    marca = input("marca? ")
-    matricula = input("matricula? ").upper()
-    # TODO: Pedir o resto dos dados do veiculo, e não esquecer de os guardar no dicionario
-    # ...
-
-    veiculo = {"marca": marca,
-               "matricula": matricula}
+    veiculo = {
+               "marca": marca,
+               "modelo": modelo,
+               "matricula": matricula,
+               "ano": ano,
+               "combustivel": combustivel,
+               "kms": kms,
+               "cilindrada": cilindrada,
+               "cor": cor,
+               "observacoes": observacoes
+              }
 
     return veiculo
 
