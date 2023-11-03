@@ -4,6 +4,7 @@ from io_ficheiros import (carrega_as_listas_dos_ficheiros,
                           guarda_as_listas_em_ficheiros)
 from io_terminal import pause
 from veiculos import cria_novo_veiculo, imprime_lista_de_veiculos
+from ordens_reparacao import cria_nova_or, imprime_lista_de_or
 
 def menu():
     """Menu principal da aplicação"""
@@ -56,8 +57,8 @@ def menu():
                 print("Não há clientes ou veiculos registados...")
                 continue
             """TODO: implementar cria_nova_or(lista_de_clientes, lista_de_veiculos)"""
-            # nova_or = cria_nova_or(lista_de_clientes, lista_de_veiculos)
-            # lista_de_or.append(nova_or)
+            nova_or = cria_nova_or(lista_de_clientes, lista_de_veiculos)
+            lista_de_or.append(nova_or)
 
         elif op == "4":
             if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
