@@ -15,6 +15,8 @@ lista_de_serviços = []
 def menu():
     """Menu principal da aplicação"""
 
+    lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços = carrega_as_listas_dos_ficheiros()
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -28,22 +30,15 @@ def menu():
         | [4] - Faturas                                                     |
         | [5] - Produtos                                                    |      
         |                                                                   |
-        | [g] - Guarda tudo          [c] - Carrega tudo                     |
         | [x] - Sair                                                        |
-        |                                                                   |
         ---------------------------------------------------------------------
         """)
 
         op = input("[OPÇÃO] ").lower()
 
         if op == "x":
+            guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços)
             exit()
-
-        elif op == "g":
-            guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas)
-
-        elif op == "c":
-            lista_de_veiculos, lista_de_clientes, lista_de_faturas = carrega_as_listas_dos_ficheiros()
 
         elif op == "1":
             menu_cliente()
