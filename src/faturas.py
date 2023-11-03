@@ -26,6 +26,4 @@ def cria_nova_fatura(lista_de_clientes, lista_de_veiculos):
 def imprime_lista_de_faturas(lista_de_faturas):
     """TODO: documentação"""
 
-    # TODO: Implementar esta função
-    # ...
-    pass
+    imprime_lista(cabecalho="Lista de faturas", lista=lista_de_faturas)
