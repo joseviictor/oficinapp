@@ -9,6 +9,8 @@ lista_de_veiculos = []
 lista_de_clientes = []
 lista_de_faturas = []
 lista_de_or = []
+lista_de_materiais = []
+lista_de_serviços = []
 
 def menu():
     """Menu principal da aplicação"""
@@ -246,6 +248,66 @@ def menu_fatura():
         elif op == "4":
             imprime_lista_de_faturas(lista_de_faturas)
             pause()
+
+def menu_produtos():
+    while True:
+        print("""
+        ---------------------------------------------------------------------
+        |                            OFICINAPP                              |
+        ---------------------------------------------------------------------
+        | Home > Produtos                                                   |
+        |                                                                   |
+        | [1] - Novo material                  [5] - Novo serviço           |
+        | [2] - Atualizar material             [6] - Atualizar serviço      |
+        | [3] - Remover material               [7] - Remover serviço        |
+        | [4] - Listagem de material           [8] - Listagem de serviços   |
+        |                                                                   |
+        | [x] - Voltar                                                      |
+        ---------------------------------------------------------------------
+        """)
+
+        op = input("[OPÇÃO] ").lower()
+
+        if op == "x":
+            break
+
+        elif op == "1":
+            """TODO Implementar criação de material"""
+            #novo_material = cria_nova_material()
+            #lista_de_materiais.append(novo_material)
+
+        elif op == "2":
+            """TODO Implementar atualização de material"""
+            pass
+
+        elif op == "3":
+            id_material = pergunta_id(questao="> ID do material: ", lista=lista_de_materiais, mostra_lista=True)
+            if id_material is not None:
+                lista_de_materiais.pop(id_material)
+            
+        elif op == "4":
+            """TODO Implementar listagem de material"""
+            #imprime_lista_de_materiais(lista_de_materiais)
+            #pause()
+        
+        elif op == "5":
+            """TODO Implementar criação de serviço"""
+            #novo_serviço = cria_nova_serviço()
+            #lista_de_serviços.append(novo_serviço)
+
+        elif op == "6":
+            """TODO Implementar atualização de serviço"""
+            pass
+
+        elif op == "7":
+            id_serviço = pergunta_id(questao="> ID do serviço: ", lista=lista_de_serviços, mostra_lista=True)
+            if id_serviço is not None:
+                lista_de_serviços.pop(id_serviço)
+            
+        elif op == "8":
+            """TODO Implementar listagem de serviço"""
+            #imprime_lista_de_serviços(lista_de_serviços)
+            #pause()
 
 if __name__ == "__main__":
     menu()
