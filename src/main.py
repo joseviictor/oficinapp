@@ -20,11 +20,13 @@ def menu():
         ---------------------------------------------------------------------
         |                            OFICINAPP                              |
         ---------------------------------------------------------------------
+        | Home                                                              |
         |                                                                   |
-        | [1] - Novo cliente         [5] - Listagem de clientes             |
-        | [2] - Novo veiculo         [6] - Listagem de veiculos             |
-        | [3] - Nova OR              [7] - Listagem de ordens de reparação  |      
-        | [4] - Nova fatura          [8] - Listagem das faturas             |
+        | [1] - Clientes                                                    |
+        | [2] - Veículos                                                    |
+        | [3] - Ordens de reparação                                         |      
+        | [4] - Faturas                                                     |
+        | [5] - Produtos                                                    |      
         |                                                                   |
         | [g] - Guarda tudo          [c] - Carrega tudo                     |
         | [x] - Sair                                                        |
