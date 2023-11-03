@@ -11,24 +11,26 @@ def menu():
     lista_de_veiculos = []
     lista_de_clientes = []
     lista_de_faturas = []
+    lista_de_or = []
 
     while True:
         print("""
-        *********************************************************************
-        :    (-: OFICINA BARATINHA - RESISTIMOS A QUALQUER ORÇAMENTO :-)    :
-        *********************************************************************
-        :                                                                   :
-        : nc - novo cliente         lc - listagem de clientes               :
-        : nv - novo veiculo         lv - listagem de veiculos               :
-        : nf - nova fatura          lf - listagem das faturas               :
-        : ...                                                               :
-        : g - guarda tudo           c - carrega tudo                        :
-        : x - sair                                                          :
-        :                                                                   :
-        *********************************************************************
+        ---------------------------------------------------------------------
+        |                            OFICINAPP                              |
+        ---------------------------------------------------------------------
+        |                                                                   |
+        | [1] - Novo cliente         [5] - Listagem de clientes             |
+        | [2] - Novo veiculo         [6] - Listagem de veiculos             |
+        | [3] - Nova OR              [7] - Listagem de ordens de reparação  |      
+        | [4] - Nova fatura          [8] - Listagem das faturas             |
+        |                                                                   |
+        | [g] - Guarda tudo          [c] - Carrega tudo                     |
+        | [x] - Sair                                                        |
+        |                                                                   |
+        ---------------------------------------------------------------------
         """)
 
-        op = input("opcao?").lower()
+        op = input("[OPÇÃO] ").lower()
 
         if op == "x":
             exit()
@@ -39,17 +41,25 @@ def menu():
         elif op == "c":
             lista_de_veiculos, lista_de_clientes, lista_de_faturas = carrega_as_listas_dos_ficheiros()
 
-        elif op == "nc":
+        elif op == "1":
             novo_cliente = cria_novo_cliente()
             if novo_cliente is not None:
                 lista_de_clientes.append(novo_cliente)
 
-        elif op == "nv":
+        elif op == "2":
             novo_veiculo = cria_novo_veiculo()
             if novo_veiculo is not None:
                 lista_de_veiculos.append(novo_veiculo)
 
-        elif op == "nf":
+        elif op == "3":
+            if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
+                print("Não há clientes ou veiculos registados...")
+                continue
+            """TODO: implementar cria_nova_or(lista_de_clientes, lista_de_veiculos)"""
+            # nova_or = cria_nova_or(lista_de_clientes, lista_de_veiculos)
+            # lista_de_or.append(nova_or)
+
+        elif op == "4":
             if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
                 print("Não há clientes ou veiculos registados...")
                 continue
@@ -57,15 +67,19 @@ def menu():
             nova_fatura = cria_nova_fatura(lista_de_clientes, lista_de_veiculos)
             lista_de_faturas.append(nova_fatura)
 
-        elif op == "lc":
+        elif op == "5":
             imprime_lista_de_clientes(lista_de_clientes)
             pause()
 
-        elif op == "lv":
+        elif op == "6":
             imprime_lista_de_veiculos(lista_de_veiculos)
             pause()
 
-        elif op == "lf":
+        elif op == "7":
+            """TODO: implementar imprime_lista_de_or(lista_de_or)"""
+            pause()
+
+        elif op == "8":
             imprime_lista_de_faturas(lista_de_faturas)
             pause()
 
