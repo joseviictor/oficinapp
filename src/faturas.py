@@ -23,6 +23,13 @@ def cria_nova_fatura(lista_de_clientes, lista_de_veiculos):
 
     return fatura
 
+def remover_fatura(lista_de_faturas):
+    id_fatura = pergunta_id(questao="> ID da fatura: ", lista=lista_de_faturas, mostra_lista=True)
+    if id_fatura is not None:
+        lista_de_faturas.pop(id_fatura)
+
+    return lista_de_faturas
+
 def imprime_lista_de_faturas(lista_de_faturas):
     """TODO: documentação"""
 
