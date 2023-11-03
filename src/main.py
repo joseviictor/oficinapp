@@ -35,10 +35,8 @@ def menu():
         op = input("[OPÇÃO] ").lower()
 
         if op == "x":
-            exit()
-
-        elif op == "g":
             guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas)
+            exit()
 
         elif op == "c":
             lista_de_veiculos, lista_de_clientes, lista_de_faturas = carrega_as_listas_dos_ficheiros()
