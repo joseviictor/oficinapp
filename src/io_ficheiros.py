@@ -2,7 +2,7 @@ import pickle
 
 from clientes import nome_ficheiro_lista_de_clientes
 from faturas import nome_ficheiro_lista_de_faturas
-from ordem_reparacao import nome_ficheiro_lista_de_or
+from ordens_reparacao import nome_ficheiro_lista_de_or
 from veiculos import nome_ficheiro_lista_de_veiculos
 
 
@@ -11,9 +11,10 @@ def carrega_as_listas_dos_ficheiros():
 
     lista_de_veiculos = le_de_ficheiro(nome_ficheiro_lista_de_veiculos)
     lista_de_clientes = le_de_ficheiro(nome_ficheiro_lista_de_clientes)
+    lista_de_or = le_de_ficheiro(nome_ficheiro_lista_de_or)
     lista_de_faturas = le_de_ficheiro(nome_ficheiro_lista_de_faturas)
 
-    return  lista_de_veiculos, lista_de_clientes, lista_de_faturas
+    return  lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas
 
 def guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas):
     """TODO: documentação

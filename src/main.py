@@ -1,7 +1,6 @@
 from clientes import cria_novo_cliente, imprime_lista_de_clientes
 from faturas import cria_nova_fatura, imprime_lista_de_faturas
-from io_ficheiros import (carrega_as_listas_dos_ficheiros,
-                          guarda_as_listas_em_ficheiros)
+from io_ficheiros import (carrega_as_listas_dos_ficheiros, guarda_as_listas_em_ficheiros)
 from io_terminal import pause
 from veiculos import cria_novo_veiculo, imprime_lista_de_veiculos
 from ordens_reparacao import cria_nova_or, imprime_lista_de_or
@@ -56,7 +55,6 @@ def menu():
             if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
                 print("Não há clientes ou veiculos registados...")
                 continue
-            """TODO: implementar cria_nova_or(lista_de_clientes, lista_de_veiculos)"""
             nova_or = cria_nova_or(lista_de_clientes, lista_de_veiculos)
             lista_de_or.append(nova_or)
 
@@ -77,7 +75,7 @@ def menu():
             pause()
 
         elif op == "7":
-            """TODO: implementar imprime_lista_de_or(lista_de_or)"""
+            imprime_lista_de_or(lista_de_or)
             pause()
 
         elif op == "8":
