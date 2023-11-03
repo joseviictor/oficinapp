@@ -15,3 +15,5 @@ temp/
 # Ignore python cache folder
 __pycache__/
 
+# Ignore storage files
+*.pk
