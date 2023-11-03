@@ -36,7 +36,7 @@ def remover_material(lista_de_materiais):
 
     return lista_de_materiais
 
-def imprime_lista_de_clientes(lista_de_materiais):
+def imprime_lista_de_materiais(lista_de_materiais):
     """TODO: documentação"""
     
     imprime_lista(cabecalho="Lista de materiais", lista=lista_de_materiais)
