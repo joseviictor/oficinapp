@@ -1,3 +1,4 @@
+import os
 import pickle
 
 from clientes import nome_ficheiro_lista_de_clientes
@@ -30,16 +31,12 @@ def guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de
     :param lista_de_materiais:
     :param lista_de_serviços:
     """
-    op = input("> Os dados nos ficheiros serão sobrepostos. Continuar (s/n)? ").lower()
-    if op == 's':
-        guarda_em_ficheiro(nome_ficheiro_lista_de_veiculos, lista_de_veiculos)
-        guarda_em_ficheiro(nome_ficheiro_lista_de_clientes, lista_de_clientes)
-        guarda_em_ficheiro(nome_ficheiro_lista_de_or, lista_de_or)
-        guarda_em_ficheiro(nome_ficheiro_lista_de_faturas, lista_de_faturas)
-        guarda_em_ficheiro(nome_ficheiro_lista_de_materiais, lista_de_materiais)
-        guarda_em_ficheiro(nome_ficheiro_lista_de_serviços, lista_de_serviços)
-    else:
-        print("Gravação cancelada...")
+    guarda_em_ficheiro(nome_ficheiro_lista_de_veiculos, lista_de_veiculos)
+    guarda_em_ficheiro(nome_ficheiro_lista_de_clientes, lista_de_clientes)
+    guarda_em_ficheiro(nome_ficheiro_lista_de_or, lista_de_or)
+    guarda_em_ficheiro(nome_ficheiro_lista_de_faturas, lista_de_faturas)
+    guarda_em_ficheiro(nome_ficheiro_lista_de_materiais, lista_de_materiais)
+    guarda_em_ficheiro(nome_ficheiro_lista_de_serviços, lista_de_serviços)
 
 def guarda_em_ficheiro(nome_do_ficheiro, dados):
     """Guarda os dados recebidos num ficheiro
@@ -57,6 +54,6 @@ def le_de_ficheiro(nome_ficheiro):
     :param nome_ficheiro: nome do ficheiro onde estao os dados
     :return: o que leu do ficheiro (depende dos dados guardados)
     """
-
-    with open(nome_ficheiro, "rb") as f:
-        return pickle.load(f)
+    if os.path.isfile(nome_ficheiro):
+        with open(nome_ficheiro, "rb") as f:
+            return pickle.load(f)
