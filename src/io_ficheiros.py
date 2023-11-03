@@ -56,4 +56,9 @@ def le_de_ficheiro(nome_ficheiro):
     """
     if os.path.isfile(nome_ficheiro):
         with open(nome_ficheiro, "rb") as f:
-            return pickle.load(f)
+            if os.stat(nome_ficheiro).st_size != 0:
+                return pickle.load(f)
+            else:
+                return []
+    else:
+        return []
