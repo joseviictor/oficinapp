@@ -4,6 +4,8 @@ from clientes import nome_ficheiro_lista_de_clientes
 from faturas import nome_ficheiro_lista_de_faturas
 from ordens_reparacao import nome_ficheiro_lista_de_or
 from veiculos import nome_ficheiro_lista_de_veiculos
+from materiais import nome_ficheiro_lista_de_materiais
+from servicos import nome_ficheiro_lista_de_serviços
 
 
 def carrega_as_listas_dos_ficheiros():
@@ -13,24 +15,29 @@ def carrega_as_listas_dos_ficheiros():
     lista_de_clientes = le_de_ficheiro(nome_ficheiro_lista_de_clientes)
     lista_de_or = le_de_ficheiro(nome_ficheiro_lista_de_or)
     lista_de_faturas = le_de_ficheiro(nome_ficheiro_lista_de_faturas)
+    lista_de_materiais = le_de_ficheiro(nome_ficheiro_lista_de_materiais)
+    lista_de_serviços = le_de_ficheiro(nome_ficheiro_lista_de_serviços)
 
-    return  lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas
+    return  lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
 
-def guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas):
+def guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços):
     """TODO: documentação
 
     :param lista_de_clientes:
     :param lista_de_veiculos:
     :param lista_de_or:
     :param lista_de_faturas:
+    :param lista_de_materiais:
+    :param lista_de_serviços:
     """
-
     op = input("> Os dados nos ficheiros serão sobrepostos. Continuar (s/n)? ").lower()
     if op == 's':
         guarda_em_ficheiro(nome_ficheiro_lista_de_veiculos, lista_de_veiculos)
         guarda_em_ficheiro(nome_ficheiro_lista_de_clientes, lista_de_clientes)
         guarda_em_ficheiro(nome_ficheiro_lista_de_or, lista_de_or)
         guarda_em_ficheiro(nome_ficheiro_lista_de_faturas, lista_de_faturas)
+        guarda_em_ficheiro(nome_ficheiro_lista_de_materiais, lista_de_materiais)
+        guarda_em_ficheiro(nome_ficheiro_lista_de_serviços, lista_de_serviços)
     else:
         print("Gravação cancelada...")
 
