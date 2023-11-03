@@ -6,8 +6,7 @@ nome_ficheiro_lista_de_or = "lista_de_or.pk"
 def cria_nova_or(lista_de_clientes, lista_de_veiculos):
     """Pede ao utilizador para introduzir uma nova ordem de reparação
 
-    :return: dicionario com uma OR na forma
-        {"marca": <<marca>>, "matricula": <<matricula>>, ...}
+    :return: dicionario com uma OR
     """
     lista_serviços = []
     id_cliente = pergunta_id(questao="> ID do cliente: ", lista=lista_de_clientes, mostra_lista=True)
