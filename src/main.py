@@ -1,4 +1,4 @@
-from clientes import cria_novo_cliente, imprime_lista_de_clientes
+from clientes import *
 from faturas import cria_nova_fatura, imprime_lista_de_faturas, remover_fatura
 from io_ficheiros import (carrega_as_listas_dos_ficheiros, guarda_as_listas_em_ficheiros)
 from io_terminal import pause, pergunta_id
@@ -89,9 +89,7 @@ def menu_cliente():
             pass
 
         elif op == "3":
-            id_cliente = pergunta_id(questao="> ID do cliente: ", lista=lista_de_clientes, mostra_lista=True)
-            if id_cliente is not None:
-                lista_de_clientes.pop(id_cliente)
+            lista_de_clientes = remover_cliente(lista_de_clientes)
             
         elif op == "4":
             imprime_lista_de_clientes(lista_de_clientes)
