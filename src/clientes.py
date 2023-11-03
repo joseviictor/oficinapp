@@ -1,4 +1,4 @@
-from io_terminal import imprime_lista
+from io_terminal import imprime_lista, pergunta_id
 
 nome_ficheiro_lista_de_clientes = "lista_de_clientes.pk"
 
@@ -25,6 +25,13 @@ def cria_novo_cliente():
                }
 
     return cliente
+
+def remover_cliente(lista_de_clientes):
+    id_cliente = pergunta_id(questao="> ID do cliente: ", lista=lista_de_clientes, mostra_lista=True)
+    if id_cliente is not None:
+        lista_de_clientes.pop(id_cliente)
+
+    return lista_de_clientes
 
 def imprime_lista_de_clientes(lista_de_clientes):
     """TODO: documentação"""

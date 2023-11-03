@@ -1,5 +1,5 @@
-from clientes import cria_novo_cliente, imprime_lista_de_clientes
-from faturas import cria_nova_fatura, imprime_lista_de_faturas
+from clientes import *
+from faturas import cria_nova_fatura, imprime_lista_de_faturas, remover_fatura
 from io_ficheiros import (carrega_as_listas_dos_ficheiros, guarda_as_listas_em_ficheiros)
 from io_terminal import pause, pergunta_id
 from materiais import cria_novo_material, imprime_lista_de_materiais, remover_material
@@ -15,6 +15,7 @@ lista_de_materiais = []
 lista_de_serviços = []
 
 def menu():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
     """Menu principal da aplicação"""
 
     lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços = carrega_as_listas_dos_ficheiros()
@@ -58,6 +59,8 @@ def menu():
             menu_produtos()
 
 def menu_cliente():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -89,15 +92,15 @@ def menu_cliente():
             pass
 
         elif op == "3":
-            id_cliente = pergunta_id(questao="> ID do cliente: ", lista=lista_de_clientes, mostra_lista=True)
-            if id_cliente is not None:
-                lista_de_clientes.pop(id_cliente)
+            lista_de_clientes = remover_cliente(lista_de_clientes)
             
         elif op == "4":
             imprime_lista_de_clientes(lista_de_clientes)
             pause()
 
 def menu_veiculo():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -138,6 +141,8 @@ def menu_veiculo():
             pause()
 
 def menu_or():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -180,6 +185,8 @@ def menu_or():
             pause()
 
 def menu_fatura():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -214,15 +221,15 @@ def menu_fatura():
             pass
 
         elif op == "3":
-            id_fatura = pergunta_id(questao="> ID da fatura: ", lista=lista_de_faturas, mostra_lista=True)
-            if id_fatura is not None:
-                lista_de_faturas.pop(id_fatura)
+            lista_de_faturas = remover_fatura(lista_de_faturas)
             
         elif op == "4":
             imprime_lista_de_faturas(lista_de_faturas)
             pause()
 
 def menu_produtos():
+    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
+
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -245,7 +252,6 @@ def menu_produtos():
             break
 
         elif op == "1":
-            """TODO Implementar criação de material"""
             novo_material = cria_novo_material()
             lista_de_materiais.append(novo_material)
 
