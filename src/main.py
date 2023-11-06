@@ -168,7 +168,7 @@ def menu_or():
             if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
                 print("Não há clientes ou veiculos registados...")
                 continue
-            nova_or = cria_nova_or(lista_de_clientes, lista_de_veiculos)
+            nova_or = cria_nova_or(lista_de_clientes, lista_de_veiculos, lista_de_serviços, lista_de_materiais)
             lista_de_or.append(nova_or)
 
         elif op == "2":

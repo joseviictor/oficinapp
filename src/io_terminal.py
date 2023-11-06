@@ -52,4 +52,4 @@ def pergunta_id(questao, lista, mostra_lista=False):
         if 0 <= id < len(lista):
             return id
         else:
-            print(f"id inexistente. Tente de novo. Valores admitidos {0} - {len(lista)}")
+            print(f"ID inexistente. Tente de novo. Valores admitidos {0} - {len(lista)-1}")
