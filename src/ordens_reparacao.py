@@ -30,16 +30,18 @@ def cria_nova_or(lista_de_clientes, lista_de_veiculos, lista_de_serviços, lista
 def imprime_lista_de_or(lista_de_or):
     """TODO: documentação"""
 
-    imprime_lista(cabecalho="Lista de Ordens de Reparação", lista=lista_de_or)
+    imprime_lista(cabecalho="\nLista de Ordens de Reparação", lista=lista_de_or)
 
 def produtos_a_faturar(produtos_da_or, lista_de_produtos, tipo):
-    imprime_lista(lista_de_produtos)
-
-    while True:
-        id = pergunta_id(questao="> ID do "+ tipo + ": ", lista=lista_de_produtos, mostra_lista=False)
-
-        if len(id) > 0:
-            produtos_da_or.append(id)
-        else:
-            break
     
+    imprime_lista(cabecalho = "\nLista de " + tipo, lista=lista_de_produtos)
+
+    option = "s"
+
+    while option == "s":
+        try:
+            id = pergunta_id(questao="> ID do "+ tipo + ": ", lista=lista_de_produtos, mostra_lista=False)
+            produtos_da_or.append(id)
+            option = input("\n> Deseja inserir outro " + tipo + "(s/n)? ")
+        except:
+            print("> ID inválido.")
