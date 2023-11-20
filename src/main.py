@@ -123,9 +123,8 @@ def menu_veiculo():
             db_show('VEICULO')
             pause()
 
-def menu_or():
-    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
 
+def menu_or():
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -141,30 +140,19 @@ def menu_or():
         | [x] - Voltar                                                      |
         ---------------------------------------------------------------------
         """)
-
         op = input("[OPÇÃO] ").lower()
-
         if op == "x":
             break
-
         elif op == "1":
-            if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
-                print("Não há clientes ou veiculos registados...")
-                continue
-            nova_or = cria_nova_or(lista_de_clientes, lista_de_veiculos, lista_de_serviços, lista_de_materiais)
-            lista_de_or.append(nova_or)
-
+            db_add_ordem_reparacoes(input('id_cliente_or: '), input('id_veiculo_or: '), input('data_or: '), input('serviços: '))
         elif op == "2":
-            """TODO Implementar atualização de or"""
-            pass
-
+            """TODO Implementar atualização de ORDEM_REPARACOES"""
+            db_update_ordem_reparacoes(db_getfields('ORDEM_REPARACOES'), input('INSIRA O VALOR: '), db_getfields('ORDEM_REPARACOES'), '=', input('INSIRA O VALOR: '))
         elif op == "3":
-            id_or = pergunta_id(questao="> ID da ordem de reparação: ", lista=lista_de_or, mostra_lista=True)
-            if id_or is not None:
-                lista_de_or.pop(id_or)
+            db_delete_ordem_reparacoes(db_getfields('ORDEM_REPARACOES'), '=', input('INSIRA O VALOR: '))
             
         elif op == "4":
-            imprime_lista_de_or(lista_de_or)
+            db_show('ORDEM_REPARACOES')
             pause()
 
 def menu_fatura():
