@@ -29,7 +29,7 @@ def pause():
     """Faz uma pausa no programa e espera que o utilizador pressione ENTER"""
     input("Pressione ENTER para continuar...")
 def pergunta_id(questao, lista, mostra_lista=False):
-    """TODO: documentação
+    """documentação
     :param questao:
     :param lista:
     :param mostra_lista:
