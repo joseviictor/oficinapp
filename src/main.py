@@ -222,22 +222,19 @@ def menu_produtos():
         if op == "x":
             break
 
+        
         elif op == "1":
-            """TODO Implementar criação de material"""
-            novo_material = cria_novo_material()
-            lista_de_materiais.append(novo_material)
-
+            db_add_material(input('id_cliente_or: '), input('id_veiculo_or: '), input('data_or: '), input('serviços: '))
         elif op == "2":
             """TODO Implementar atualização de material"""
-            pass
-
+            db_update_material(db_getfields('MATRIAL'), input('INSIRA O VALOR: '), db_getfields('MATRIAL'), '=', input('INSIRA O VALOR: '))
         elif op == "3":
-            lista_de_materiais = remover_material(lista_de_materiais)
+            db_delete_material(db_getfields('MATRIAL'), '=', input('INSIRA O VALOR: '))
             
         elif op == "4":
-            """TODO Implementar listagem de material"""
-            imprime_lista_de_materiais(lista_de_materiais)
+            db_show('MATRIAL')
             pause()
+
         
         elif op == "5":
             """TODO Implementar criação de serviço"""

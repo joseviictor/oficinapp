@@ -1,42 +1,29 @@
-from io_terminal import imprime_lista, pergunta_id
 
-nome_ficheiro_lista_de_materiais = "lista_de_materiais.pk"
-
-def cria_novo_material():
-    """Pedir os dados de um novo material para a lista de materiais
-
-    :return: dicionario com o novo material, {"nome": <<nome>>, "custo": <<nif>>, ...}
-    """
-    material = input("> Material: ").capitalize()
-    custo = input("> Custo: ")
-    preço = input("> Preço de venda: ")
-    stock = input("> Stock: ")
-    fornecedor = input("> Fornecedor: ").capitalize()
-    telefone = input("> Telefone fornecedor: ")
-    email = input("> Email fornecedor: ").lower()
-        
-    material = {"material": material,
-                "custo": custo,
-                 "preço": preço,
-                 "stock": stock,
-                 "fornecedor": fornecedor,
-                 "telefone": telefone,
-                 "email": email
-               }
-
-    return material
-
-def atualizar_material(lista_de_materiais):
-    pass
-
-def remover_material(lista_de_materiais):
-    id_material = pergunta_id(questao="> ID do material: ", lista=lista_de_materiais, mostra_lista=True)
-    if id_material is not None:
-        lista_de_materiais.pop(id_material)
-
-    return lista_de_materiais
-
-def imprime_lista_de_materiais(lista_de_materiais):
-    """TODO: documentação"""
+from bd import *
+# ------------------------------
+def db_add_material(v_material, v_custo, v_preço, v_fornecedor, v_telefone, v_email, v_part_number):
+    conn, cursor = connector()
+    cursor.execute('INSERT INTO MATRIAL (material, custo, preço, fornecedor, telefone, email, part_number) VALUES (?, ?, ?, ?, ?, ?, ?)', (v_material, v_custo, v_preço, v_fornecedor, v_telefone, v_email, v_part_number))
+    conn.commit()
+    conn.close()
     
-    imprime_lista(cabecalho="Lista de materiais", lista=lista_de_materiais)
+# ------------------------------
+def db_update_material(v_define_field, v_define_value, v_condition_field, v_condition_operator, v_condition_value):
+    conn, cursor = connector()
+    cursor.execute('UPDATE MATRIAL SET ' + v_define_field + ' = ' + '\'' + v_define_value + '\'' +' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'')
+    conn.commit()
+    conn.close()
+# ------------------------------
+def db_delete_material(v_condition_field, v_condition_operator, v_condition_value):
+    conn, cursor = connector()
+    cursor.execute('DELETE FROM MATRIAL WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'' )
+    conn.commit()
+    conn.close()
+# ------------------------------
+# bloco de textes
+if __name__ == "__main__":
+    #db_show_material()
+    db_add_material('1', '1', '1', '1', '1', '1', '1')
+    db_update_material('material', 'madeira', 'id_material', '=', '2')
+    #db_delete_material('id_material', '=', '3')
+    db_show('MATRIAL')
