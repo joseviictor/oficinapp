@@ -65,7 +65,7 @@ def menu_cliente():
             """TODO Implementar atualização de cliente"""
             db_update('CLIENTE', db_getfields('CLIENTE'), input('INSIRA O VALOR: '), db_getfields('CLIENTE'), '=', input('INSIRA O VALOR: '))
         elif op == "3":
-            db_delete_Cliente(db_getfields('CLIENTE'), '=', input('INSIRA O VALOR: '))
+            db_delete('CLIENTE', db_getfields('CLIENTE'), '=', input('INSIRA O VALOR: '))
             
         elif op == "4":
             db_show('CLIENTE')
@@ -95,7 +95,7 @@ def menu_veiculo():
             """TODO Implementar atualização de VEICULO"""
             db_update('VEICULO', db_getfields('VEICULO'), input('INSIRA O VALOR: '), db_getfields('VEICULO'), '=', input('INSIRA O VALOR: '))
         elif op == "3":
-            db_delete_veiculo(db_getfields('VEICULO'), '=', input('INSIRA O VALOR: '))
+            db_delete('VEICULO', db_getfields('VEICULO'), '=', input('INSIRA O VALOR: '))
             
         elif op == "4":
             db_show('VEICULO')
@@ -125,7 +125,7 @@ def menu_or():
             """TODO Implementar atualização de ORDEM_REPARACOES"""
             db_update('ORDEM_REPARACOES', db_getfields('ORDEM_REPARACOES'), input('INSIRA O VALOR: '), db_getfields('ORDEM_REPARACOES'), '=', input('INSIRA O VALOR: '))
         elif op == "3":
-            db_delete_ordem_reparacoes(db_getfields('ORDEM_REPARACOES'), '=', input('INSIRA O VALOR: '))
+            db_delete('ORDEM_REPARACOES', db_getfields('ORDEM_REPARACOES'), '=', input('INSIRA O VALOR: '))
             
         elif op == "4":
             db_show('ORDEM_REPARACOES')
@@ -155,7 +155,7 @@ def menu_fatura():
             """TODO Implementar atualização de fatura"""
             db_update('FATURA', db_getfields('FATURA'), input('INSIRA O VALOR: '), db_getfields('FATURA'), '=', input('INSIRA O VALOR: '))
         elif op == "3":
-            db_delete_fatura(db_getfields('FATURA'), '=', input('INSIRA O VALOR: '))
+            db_delete('FATURA', db_getfields('FATURA'), '=', input('INSIRA O VALOR: '))
             
         elif op == "4":
             db_show('FATURA')
@@ -185,7 +185,7 @@ def menu_produtos():
             """TODO Implementar atualização de material"""
             db_update('MATRIAL', db_getfields('MATRIAL'), input('INSIRA O VALOR: '), db_getfields('MATRIAL'), '=', input('INSIRA O VALOR: '))
         elif op == "3":
-            db_delete_material(db_getfields('MATRIAL'), '=', input('INSIRA O VALOR: '))
+            db_delete('MATRIAL', db_getfields('MATRIAL'), '=', input('INSIRA O VALOR: '))
             
         elif op == "4":
             db_show('MATRIAL')
@@ -198,7 +198,7 @@ def menu_produtos():
             """TODO Implementar atualização de serviço"""
             db_update('SERVICO', db_getfields('SERVICO'), input('INSIRA O VALOR: '), db_getfields('SERVICO'), '=', input('INSIRA O VALOR: '))
         elif op == "7":
-            db_delete_servico(db_getfields('SERVICO'), '=', input('INSIRA O VALOR: '))
+            db_delete('SERVICO', db_getfields('SERVICO'), '=', input('INSIRA O VALOR: '))
             
         elif op == "8":
             """TODO Implementar listagem de serviço"""
