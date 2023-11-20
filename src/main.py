@@ -226,22 +226,21 @@ def menu_produtos():
             pause()
 
         
+        
         elif op == "5":
             """TODO Implementar criação de serviço"""
-            novo_serviço = cria_novo_serviço()
-            lista_de_serviços.append(novo_serviço)
-
+            db_add_servico(input('servico: '), input('preco: '), input('observacao: '))
         elif op == "6":
             """TODO Implementar atualização de serviço"""
-            pass
-
+            db_update_servico(db_getfields('SERVICO'), input('INSIRA O VALOR: '), db_getfields('SERVICO'), '=', input('INSIRA O VALOR: '))
         elif op == "7":
-            lista_de_serviços = remover_serviço(lista_de_serviços)
+            db_delete_servico(db_getfields('SERVICO'), '=', input('INSIRA O VALOR: '))
             
         elif op == "8":
             """TODO Implementar listagem de serviço"""
-            imprime_lista_de_serviços(lista_de_serviços)
+            db_show('SERVICO')
             pause()
+
 
 if __name__ == "__main__":
     menu()

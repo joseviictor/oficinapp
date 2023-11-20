@@ -1,34 +1,29 @@
-from io_terminal import imprime_lista, pergunta_id
 
-nome_ficheiro_lista_de_serviços = "lista_de_serviços.pk"
-
-def cria_novo_serviço():
-    """Pedir os dados de um novo material para a lista de serviços
-
-    :return: dicionario com o novo serviço, {"nome": <<nome>>, "custo": <<nif>>, ...}
-    """
-    serviço = input("> Serviço: ").capitalize()
-    preço = input("> Preço de venda: ")
-    observação = input("> Observação: ").capitalize()
-        
-    serviço = {"serviço": serviço,
-                "preço": preço,
-                "observação": observação
-               }
-
-    return serviço
-
-def atualizar_serviço(lista_de_serviços):
-    pass
-
-def remover_serviço(lista_de_serviços):
-    id_serviço = pergunta_id(questao="> ID do material: ", lista=lista_de_serviços, mostra_lista=True)
-    if id_serviço is not None:
-        lista_de_serviços.pop(id_serviço)
-
-    return lista_de_serviços
-
-def imprime_lista_de_serviços(lista_de_serviços):
-    """TODO: documentação"""
+from bd import *
+# ------------------------------
+def db_add_servico(v_servico, v_preco, v_observacao):
+    conn, cursor = connector()
+    cursor.execute('INSERT INTO MATRIAL (servico, preco, observacao) VALUES (?, ?, ?)', (v_servico, v_preco, v_observacao))
+    conn.commit()
+    conn.close()
     
-    imprime_lista(cabecalho="Lista de serviços", lista=lista_de_serviços)
+# ------------------------------
+def db_update_servico(v_define_field, v_define_value, v_condition_field, v_condition_operator, v_condition_value):
+    conn, cursor = connector()
+    cursor.execute('UPDATE MATRIAL SET ' + v_define_field + ' = ' + '\'' + v_define_value + '\'' +' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'')
+    conn.commit()
+    conn.close()
+# ------------------------------
+def db_delete_servico(v_condition_field, v_condition_operator, v_condition_value):
+    conn, cursor = connector()
+    cursor.execute('DELETE FROM MATRIAL WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'' )
+    conn.commit()
+    conn.close()
+# ------------------------------
+# bloco de textes
+if __name__ == "__main__":
+    #db_show_servico()
+    db_add_servico('1', '1', '1', '1', '1', '1', '1')
+    db_update_servico('material', 'madeira', 'id_servico', '=', '2')
+    #db_delete_servico('id_servico', '=', '3')
+    db_show('MATRIAL')
