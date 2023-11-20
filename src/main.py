@@ -6,6 +6,8 @@ from faturas import db_add_fatura
 from materiais import db_add_material
 from servicos import db_add_servico
 from bd import db_creator, db_getfields, db_show, db_update, db_delete
+from io_terminal import imprime_lista
+# ------------------------------------------------------------
 def menu():
     """Menu principal da aplicação"""
     db_creator()
@@ -31,6 +33,7 @@ def menu():
             exit()
         elif int(op) in range(1, 6):
             opcoes_menu[int(op)-1]()
+# ------------------------------------------------------------
 def menu_cliente():
     while True:
         print("""
@@ -58,7 +61,8 @@ def menu_cliente():
             db_delete('CLIENTE', db_getfields('CLIENTE'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
-            db_show('CLIENTE')
+            imprime_lista(db_getfields('CLIENTE', False), db_show('CLIENTE', False))
+# ------------------------------------------------------------
 def menu_veiculo():
     while True:
         print("""
@@ -87,7 +91,8 @@ def menu_veiculo():
             db_delete('VEICULO', db_getfields('VEICULO'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
-            db_show('VEICULO')
+            imprime_lista(db_getfields('VEICULO', False), db_show('VEICULO', False))
+# ------------------------------------------------------------
 def menu_or():
     while True:
         print("""
@@ -116,7 +121,8 @@ def menu_or():
             db_delete('ORDEM_REPARACOES', db_getfields('ORDEM_REPARACOES'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
-            db_show('ORDEM_REPARACOES')
+            imprime_lista(db_getfields('ORDEM_REPARACOES', False), db_show('ORDEM_REPARACOES', False))
+# ------------------------------------------------------------
 def menu_fatura():
     while True:
         print("""
@@ -145,7 +151,8 @@ def menu_fatura():
             db_delete('FATURA', db_getfields('FATURA'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
-            db_show('FATURA')
+            imprime_lista(db_getfields('FATURA', False), db_show('FATURA', False))
+# ------------------------------------------------------------
 def menu_produtos():
     while True:
         print("""
@@ -174,7 +181,7 @@ def menu_produtos():
             db_delete('MATRIAL', db_getfields('MATRIAL'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
-            db_show('MATRIAL')
+            imprime_lista(db_getfields('MATRIAL', False), db_show('MATRIAL', False))
         
         elif op == "5":
             """TODO Implementar criação de serviço"""
@@ -187,6 +194,6 @@ def menu_produtos():
             
         elif op == "8":
             """TODO Implementar listagem de serviço"""
-            db_show('SERVICO')
+            imprime_lista(db_getfields('SERVICO', False), db_show('SERVICO', False))
 if __name__ == "__main__":
     menu()
