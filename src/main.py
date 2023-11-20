@@ -18,6 +18,8 @@ def menu():
     global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
     """Menu principal da aplicação"""
 
+    db_creator()
+
     lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços = carrega_as_listas_dos_ficheiros()
 
     while True:
@@ -83,9 +85,7 @@ def menu_cliente():
             break
 
         elif op == "1":
-            novo_cliente = cria_novo_cliente()
-            if novo_cliente is not None:
-                lista_de_clientes.append(novo_cliente)
+            db_add_Cliente(input('Nome do cliente: '), input('nif: '), input('cc: '), input('dob: '), input('morada: '), input('telefone: '), input('v_email: '))
 
         elif op == "2":
             """TODO Implementar atualização de cliente"""
@@ -95,7 +95,7 @@ def menu_cliente():
             lista_de_clientes = remover_cliente(lista_de_clientes)
             
         elif op == "4":
-            imprime_lista_de_clientes(lista_de_clientes)
+            db_show_Cliente()
             pause()
 
 def menu_veiculo():
@@ -252,6 +252,7 @@ def menu_produtos():
             break
 
         elif op == "1":
+            """TODO Implementar criação de material"""
             novo_material = cria_novo_material()
             lista_de_materiais.append(novo_material)
 
