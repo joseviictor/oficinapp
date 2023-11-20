@@ -1,3 +1,4 @@
+
 import sqlite3
 # ------------------------------------------------------------
 def connector():
@@ -53,3 +54,15 @@ def db_show(v_tableName):
     for linha in dados:
         print(linha)
     conn.close()
+def db_update(v_tableName ,v_define_field, v_define_value, v_condition_field, v_condition_operator, v_condition_value):
+    conn, cursor = connector()
+    cursor.execute('UPDATE ' + v_tableName + ' SET ' + v_define_field + ' = ' + '\'' + v_define_value + '\'' +' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'')
+    conn.commit()
+    conn.close()
+if __name__ == "__main__":
+    db_drop()
+    
+    db_creator()
+    
+    db_getfields('CLIENTE')
+    #db_clearTable('CLIENTE')
