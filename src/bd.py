@@ -1,5 +1,6 @@
 
 import sqlite3
+from io_terminal import imprime_lista, pause
 # ------------------------------------------------------------
 def connector():
     conn = sqlite3.connect('resources/OFICINA.db')
@@ -37,37 +38,42 @@ def db_clearTable(v_table_name):
     conn.close()
 
 # ------------------------------------------------------------
-def db_getfields(v_nome_tabela):
+def db_getfields(v_nome_tabela, mostra_pergunta=True):
     conn, cursor = connector()
     cursor.execute(f"PRAGMA table_info({v_nome_tabela});")
     nomes_colunas = [coluna[1] for coluna in cursor.fetchall()]
     conn.close()
-    for nome, i in zip(nomes_colunas, range(len(nomes_colunas))):
-        print('[' + str(i) + '] - ' + nome)
-    
-    return nomes_colunas[int(input('INSIRA A SUA OPÇÃO: '))]
-# ------------------------------
-def db_show(v_tableName):
+    if mostra_pergunta:
+        for nome, i in zip(nomes_colunas, range(len(nomes_colunas))):
+            print('[' + str(i) + '] - ' + nome)
+        
+        return nomes_colunas[int(input('ESCOLHA A COLUNA: '))]
+    else:
+        return nomes_colunas
+# ------------------------------------------------------------
+def db_show(v_tableName, return_value=True):
     conn, cursor = connector()
     cursor.execute('SELECT * FROM ' + v_tableName)
     dados = cursor.fetchall()
-    for linha in dados:
-        print(linha)
     conn.close()
+    
+    if return_value:
+        for linha in dados:
+            print(linha)
+        pause()
+    else:
+        return dados
+
+    
+# ------------------------------
 def db_update(v_tableName, v_define_field, v_define_value, v_condition_field, v_condition_operator, v_condition_value):
     conn, cursor = connector()
     cursor.execute('UPDATE ' + v_tableName + ' SET ' + v_define_field + ' = ' + '\'' + v_define_value + '\'' +' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'')
     conn.commit()
     conn.close()
+# ------------------------------
 def db_delete(v_tableName, v_condition_field, v_condition_operator, v_condition_value):
     conn, cursor = connector()
     cursor.execute('DELETE FROM ' + v_tableName + ' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'' )
     conn.commit()
     conn.close()
-if __name__ == "__main__":
-    db_drop()
-    
-    db_creator()
-    
-    db_getfields('CLIENTE')
-    #db_clearTable('CLIENTE')
