@@ -155,9 +155,8 @@ def menu_or():
             db_show('ORDEM_REPARACOES')
             pause()
 
-def menu_fatura():
-    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
 
+def menu_fatura():
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -173,30 +172,21 @@ def menu_fatura():
         | [x] - Voltar                                                      |
         ---------------------------------------------------------------------
         """)
-
         op = input("[OPÇÃO] ").lower()
-
         if op == "x":
             break
-
         elif op == "1":
-            if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
-                print("Não há clientes ou veiculos registados...")
-                continue
-
-            nova_fatura = cria_nova_fatura(lista_de_clientes, lista_de_veiculos)
-            lista_de_faturas.append(nova_fatura)
-
+            db_add_fatura(input('id_cliente_or: '), input('id_veiculo_or: '), input('data_or: '), input('serviços: '))
         elif op == "2":
-            """TODO Implementar atualização de or"""
-            pass
-
+            """TODO Implementar atualização de fatura"""
+            db_update_fatura(db_getfields('FATURA'), input('INSIRA O VALOR: '), db_getfields('FATURA'), '=', input('INSIRA O VALOR: '))
         elif op == "3":
-            lista_de_faturas = remover_fatura(lista_de_faturas)
+            db_delete_fatura(db_getfields('FATURA'), '=', input('INSIRA O VALOR: '))
             
         elif op == "4":
-            imprime_lista_de_faturas(lista_de_faturas)
+            db_show('FATURA')
             pause()
+
 
 def menu_produtos():
     global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
