@@ -8,12 +8,6 @@ def db_add_fatura(v_id_veiculo_fatura, v_dataFatura):
     conn.close()
     
 # ------------------------------
-def db_update_fatura(v_define_field, v_define_value, v_condition_field, v_condition_operator, v_condition_value):
-    conn, cursor = connector()
-    cursor.execute('UPDATE FATURA SET ' + v_define_field + ' = ' + '\'' + v_define_value + '\'' +' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'')
-    conn.commit()
-    conn.close()
-# ------------------------------
 def db_delete_fatura(v_condition_field, v_condition_operator, v_condition_value):
     conn, cursor = connector()
     cursor.execute('DELETE FROM FATURA WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'' )
@@ -24,6 +18,5 @@ def db_delete_fatura(v_condition_field, v_condition_operator, v_condition_value)
 if __name__ == "__main__":
     #db_show_fatura()
     db_add_fatura('1', '1')
-    db_update_fatura('id_veiculo_fatura', '6', 'id_cliente_fatura', '=', '2')
     #db_delete_fatura('id_cliente_fatura', '=', '3')
     db_show('FATURA')
