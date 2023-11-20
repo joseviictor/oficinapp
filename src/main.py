@@ -61,8 +61,6 @@ def menu():
             menu_produtos()
 
 def menu_cliente():
-    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
-
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -78,24 +76,19 @@ def menu_cliente():
         | [x] - Voltar                                                      |
         ---------------------------------------------------------------------
         """)
-
         op = input("[OPÇÃO] ").lower()
-
         if op == "x":
             break
-
         elif op == "1":
             db_add_Cliente(input('Nome do cliente: '), input('nif: '), input('cc: '), input('dob: '), input('morada: '), input('telefone: '), input('v_email: '))
-
         elif op == "2":
             """TODO Implementar atualização de cliente"""
-            pass
-
+            db_update_Cliente(db_getfields('CLIENTE'), input('INSIRA O VALOR: '), db_getfields('CLIENTE'), '=', input('INSIRA O VALOR: '))
         elif op == "3":
-            lista_de_clientes = remover_cliente(lista_de_clientes)
+            db_delete_Cliente(db_getfields('CLIENTE'), '=', input('INSIRA O VALOR: '))
             
         elif op == "4":
-            db_show_Cliente()
+            db_show('CLIENTE')
             pause()
 
 def menu_veiculo():
