@@ -1,11 +1,11 @@
 from clientes import *
-from faturas import cria_nova_fatura, imprime_lista_de_faturas, remover_fatura
+from faturas import *
 from io_ficheiros import (carrega_as_listas_dos_ficheiros, guarda_as_listas_em_ficheiros)
 from io_terminal import pause, pergunta_id
-from materiais import cria_novo_material, imprime_lista_de_materiais, remover_material
-from servicos import cria_novo_serviço, imprime_lista_de_serviços, remover_serviço
-from veiculos import cria_novo_veiculo, imprime_lista_de_veiculos
-from ordens_reparacao import cria_nova_or, imprime_lista_de_or
+from materiais import *
+from servicos import *
+from veiculos import *
+from ordens_reparacao import *
 
 lista_de_veiculos = []
 lista_de_clientes = []
@@ -91,9 +91,8 @@ def menu_cliente():
             db_show('CLIENTE')
             pause()
 
-def menu_veiculo():
-    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
 
+def menu_veiculo():
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -109,28 +108,19 @@ def menu_veiculo():
         | [x] - Voltar                                                      |
         ---------------------------------------------------------------------
         """)
-
         op = input("[OPÇÃO] ").lower()
-
         if op == "x":
             break
-
         elif op == "1":
-            novo_veiculo = cria_novo_veiculo()
-            if novo_veiculo is not None:
-                lista_de_veiculos.append(novo_veiculo)
-
+            db_add_veiculo(input('marca: '), input('modelo: '), input('matricula: '), input('combustivel: '), input('ano: '), input('kms: '), input('cilindrada: '), input('cor: '), input('observacoes: '))
         elif op == "2":
-            """TODO Implementar atualização de veículo"""
-            pass
-
+            """TODO Implementar atualização de VEICULO"""
+            db_update_veiculo(db_getfields('VEICULO'), input('INSIRA O VALOR: '), db_getfields('VEICULO'), '=', input('INSIRA O VALOR: '))
         elif op == "3":
-            id_veículo = pergunta_id(questao="> ID do veículo: ", lista=lista_de_veiculos, mostra_lista=True)
-            if id_veículo is not None:
-                lista_de_veiculos.pop(id_veículo)
+            db_delete_veiculo(db_getfields('VEICULO'), '=', input('INSIRA O VALOR: '))
             
         elif op == "4":
-            imprime_lista_de_veiculos(lista_de_veiculos)
+            db_show('VEICULO')
             pause()
 
 def menu_or():

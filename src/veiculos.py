@@ -1,39 +1,27 @@
-from io_terminal import imprime_lista
-
-nome_ficheiro_lista_de_veiculos = "lista_de_veiculos.pk"
-
-def cria_novo_veiculo():
-    """Pede ao utilizador para introduzir um novo veiculo
-
-    :return: dicionario com um veiculo na forma
-        {"marca": <<marca>>, "matricula": <<matricula>>, ...}
-    """
+from bd import *
+# ------------------------------
+def db_add_veiculo(v_marca, v_modelo, v_matricula, v_combustivel, v_ano, v_kms, v_cilindrada, v_cor, v_observacoes):
+    conn, cursor = connector()
+    cursor.execute('INSERT INTO VEICULO (marca, modelo, matricula, combustivel, ano, kms, cilindrada, cor, observacoes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', (v_marca, v_modelo, v_matricula, v_combustivel, v_ano, v_kms, v_cilindrada, v_cor, v_observacoes))
+    conn.commit()
+    conn.close()
     
-    matricula = input("> Matricula: ").upper()
-    marca = input("> Marca: ").capitalize()
-    modelo = input("> Modelo: ").capitalize()
-    ano = input("> Ano: ")
-    combustivel = input("> Combustivel: ").lower()
-    kms = input("> Kms: ")
-    cilindrada = input("> Cilindrada: ")
-    cor = input("> Cor: ").lower()
-    observacoes = input("> Observações: ")
-
-    veiculo = {
-               "marca": marca,
-               "modelo": modelo,
-               "matricula": matricula,
-               "ano": ano,
-               "combustivel": combustivel,
-               "kms": kms,
-               "cilindrada": cilindrada,
-               "cor": cor,
-               "observacoes": observacoes
-              }
-
-    return veiculo
-
-def imprime_lista_de_veiculos(lista_de_veiculos):
-    """TODO: documentação"""
-
-    imprime_lista(cabecalho="Lista de Veiculos", lista=lista_de_veiculos)
+# ------------------------------
+def db_update_veiculo(v_define_field, v_define_value, v_condition_field, v_condition_operator, v_condition_value):
+    conn, cursor = connector()
+    cursor.execute('UPDATE VEICULO SET ' + v_define_field + ' = ' + '\'' + v_define_value + '\'' +' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\''  + v_condition_value + '\'')
+    conn.commit()
+    conn.close()
+# ------------------------------
+def db_delete_veiculo(v_condition_field, v_condition_operator, v_condition_value):
+    conn, cursor = connector()
+    cursor.execute('DELETE FROM VEICULO WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'' )
+    conn.commit()
+    conn.close()
+# ------------------------------
+# bloco de textes
+if __name__ == "__main__":
+    #db_add_veiculo('reout', 'clio', '19-20-pq', 'gasolina', '2000', '160000', '1600', 'cizento', 'nao tem')
+    #db_update_veiculo('marca', 'VW', 'id_veiculo', '=', '2')
+    #db_delete_veiculo('id_veiculo', '=', '1')
+    db_show('VEICULO')
