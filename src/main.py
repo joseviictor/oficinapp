@@ -1,25 +1,17 @@
-from clientes import *
-from faturas import cria_nova_fatura, imprime_lista_de_faturas, remover_fatura
-from io_ficheiros import (carrega_as_listas_dos_ficheiros, guarda_as_listas_em_ficheiros)
-from io_terminal import pause, pergunta_id
-from materiais import cria_novo_material, imprime_lista_de_materiais, remover_material
-from servicos import cria_novo_serviço, imprime_lista_de_serviços, remover_serviço
-from veiculos import cria_novo_veiculo, imprime_lista_de_veiculos
-from ordens_reparacao import cria_nova_or, imprime_lista_de_or
 
-lista_de_veiculos = []
-lista_de_clientes = []
-lista_de_faturas = []
-lista_de_or = []
-lista_de_materiais = []
-lista_de_serviços = []
-
+from clientes import db_add_Cliente
+from veiculos import db_add_veiculo
+from ordens_reparacao import db_add_ordem_reparacoes
+from faturas import db_add_fatura
+from materiais import db_add_material
+from servicos import db_add_servico
+from bd import db_creator, db_getfields, db_show, db_update, db_delete
+from io_terminal import imprime_lista
+# ------------------------------------------------------------
 def menu():
-    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
     """Menu principal da aplicação"""
-
-    lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços = carrega_as_listas_dos_ficheiros()
-
+    db_creator()
+    opcoes_menu = [menu_cliente, menu_veiculo, menu_or, menu_fatura, menu_produtos]
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -36,31 +28,14 @@ def menu():
         | [x] - Sair                                                        |
         ---------------------------------------------------------------------
         """)
-
         op = input("[OPÇÃO] ").lower()
-
         if op == "x":
-            guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços)
             exit()
-
-        elif op == "1":
-            menu_cliente()
-
-        elif op == "2":
-            menu_veiculo()
-
-        elif op == "3":
-            menu_or()
-
-        elif op == "4":
-            menu_fatura()
-
-        elif op == "5":
-            menu_produtos()
-
+        elif int(op) in range(1, 6):
+            opcoes_menu[int(op)-1]()
+# ------------------------------------------------------------
 def menu_cliente():
-    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
-
+    """Menu principal do Cliente"""
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -76,31 +51,37 @@ def menu_cliente():
         | [x] - Voltar                                                      |
         ---------------------------------------------------------------------
         """)
-
         op = input("[OPÇÃO] ").lower()
-
         if op == "x":
             break
-
         elif op == "1":
-            novo_cliente = cria_novo_cliente()
-            if novo_cliente is not None:
-                lista_de_clientes.append(novo_cliente)
-
+            """
+            Implementar a criação de um Cliente
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_add_Cliente(input('Nome do cliente: '), input('nif: '), input('cc: '), input('dob: '), input('morada: '), input('telefone: '), input('v_email: '))
         elif op == "2":
-            """TODO Implementar atualização de cliente"""
-            pass
-
+            """
+            Implementar a atualização de um Cliente
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_update('CLIENTE', db_getfields('CLIENTE'), input('INSIRA O VALOR PARA O QUAL DESEJA ALTERAR: '), db_getfields('CLIENTE'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
         elif op == "3":
-            lista_de_clientes = remover_cliente(lista_de_clientes)
+            """
+            Implementar a eliminação de um Cliente
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_delete('CLIENTE', db_getfields('CLIENTE'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
-            imprime_lista_de_clientes(lista_de_clientes)
-            pause()
-
+            """
+            Implementar a listagem dos Clientes existentes
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            imprime_lista(db_getfields('CLIENTE', False), db_show('CLIENTE', False))
+# ------------------------------------------------------------
 def menu_veiculo():
-    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
-
+    """Menu principal do Veiculo"""
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -116,33 +97,37 @@ def menu_veiculo():
         | [x] - Voltar                                                      |
         ---------------------------------------------------------------------
         """)
-
         op = input("[OPÇÃO] ").lower()
-
         if op == "x":
             break
-
         elif op == "1":
-            novo_veiculo = cria_novo_veiculo()
-            if novo_veiculo is not None:
-                lista_de_veiculos.append(novo_veiculo)
-
+            """
+            Implementar a criação de um Veículo
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_add_veiculo(input('marca: '), input('modelo: '), input('matricula: '), input('combustivel: '), input('ano: '), input('kms: '), input('cilindrada: '), input('cor: '), input('observacoes: '))
         elif op == "2":
-            """TODO Implementar atualização de veículo"""
-            pass
-
+            """
+            Implementar a atualização de um Veiculo
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_update('VEICULO', db_getfields('VEICULO'), input('INSIRA O VALOR PARA O QUAL DESEJA ALTERAR: '), db_getfields('VEICULO'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
         elif op == "3":
-            id_veículo = pergunta_id(questao="> ID do veículo: ", lista=lista_de_veiculos, mostra_lista=True)
-            if id_veículo is not None:
-                lista_de_veiculos.pop(id_veículo)
+            """
+            Implementar a eliminação de um Veiculo
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_delete('VEICULO', db_getfields('VEICULO'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
-            imprime_lista_de_veiculos(lista_de_veiculos)
-            pause()
-
+            """
+            Implementar a listagem dos Veiculos existentes
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            imprime_lista(db_getfields('VEICULO', False), db_show('VEICULO', False))
+# ------------------------------------------------------------
 def menu_or():
-    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
-
+    """Menu principal das Ordens de Reparação"""
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -158,35 +143,37 @@ def menu_or():
         | [x] - Voltar                                                      |
         ---------------------------------------------------------------------
         """)
-
         op = input("[OPÇÃO] ").lower()
-
         if op == "x":
             break
-
         elif op == "1":
-            if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
-                print("Não há clientes ou veiculos registados...")
-                continue
-            nova_or = cria_nova_or(lista_de_clientes, lista_de_veiculos)
-            lista_de_or.append(nova_or)
-
+            """
+            Implementar a criação de uma Ordem de Reparação
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_add_ordem_reparacoes(input('id_cliente_or: '), input('id_veiculo_or: '), input('data_or: '), input('serviços: '))
         elif op == "2":
-            """TODO Implementar atualização de or"""
-            pass
-
+            """
+            Implementar a atualização de uma Ordem de Reparação
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_update('ORDEM_REPARACOES', db_getfields('ORDEM_REPARACOES'), input('INSIRA O VALOR PARA O QUAL DESEJA ALTERAR: '), db_getfields('ORDEM_REPARACOES'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
         elif op == "3":
-            id_or = pergunta_id(questao="> ID da ordem de reparação: ", lista=lista_de_or, mostra_lista=True)
-            if id_or is not None:
-                lista_de_or.pop(id_or)
+            """
+            Implementar a eliminação uma Ordem de Reparação
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_delete('ORDEM_REPARACOES', db_getfields('ORDEM_REPARACOES'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
-            imprime_lista_de_or(lista_de_or)
-            pause()
-
+            """
+            Implementar a listagem das Ordens de Reparação existentes
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            imprime_lista(db_getfields('ORDEM_REPARACOES', False), db_show('ORDEM_REPARACOES', False))
+# ------------------------------------------------------------
 def menu_fatura():
-    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
-
+    """Menu principal da Fatura"""
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -202,34 +189,37 @@ def menu_fatura():
         | [x] - Voltar                                                      |
         ---------------------------------------------------------------------
         """)
-
         op = input("[OPÇÃO] ").lower()
-
         if op == "x":
             break
-
         elif op == "1":
-            if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
-                print("Não há clientes ou veiculos registados...")
-                continue
-
-            nova_fatura = cria_nova_fatura(lista_de_clientes, lista_de_veiculos)
-            lista_de_faturas.append(nova_fatura)
-
+            """
+            Implementar a criação de uma Fatura
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_add_fatura(input('id_cliente_or: '), input('id_veiculo_or: '), input('data_or: '), input('serviços: '))
         elif op == "2":
-            """TODO Implementar atualização de or"""
-            pass
-
+            """
+            Implementar a atualização de uma Fatura
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_update('FATURA', db_getfields('FATURA'), input('INSIRA O VALOR PARA O QUAL DESEJA ALTERAR: '), db_getfields('FATURA'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
         elif op == "3":
-            lista_de_faturas = remover_fatura(lista_de_faturas)
+            """
+            Implementar a eliminação de uma Fatura
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_delete('FATURA', db_getfields('FATURA'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
-            imprime_lista_de_faturas(lista_de_faturas)
-            pause()
-
+            """
+            Implementar a listagem das Faturas existentes
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            imprime_lista(db_getfields('FATURA', False), db_show('FATURA', False))
+# ------------------------------------------------------------
 def menu_produtos():
-    global lista_de_veiculos, lista_de_clientes, lista_de_or, lista_de_faturas, lista_de_materiais, lista_de_serviços
-
+    """Menu principal dos Produtos (Materiais e Serviços)"""
     while True:
         print("""
         ---------------------------------------------------------------------
@@ -245,44 +235,59 @@ def menu_produtos():
         | [x] - Voltar                                                      |
         ---------------------------------------------------------------------
         """)
-
         op = input("[OPÇÃO] ").lower()
-
         if op == "x":
             break
-
         elif op == "1":
-            novo_material = cria_novo_material()
-            lista_de_materiais.append(novo_material)
-
+            """
+            Implementar a criação de um Material
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_add_material(input('material: '), input('custo: '), input('preço: '), input('fornecedor: '), input('telefone: '), input('email: '), input('part_number: '))
         elif op == "2":
-            """TODO Implementar atualização de material"""
-            pass
-
+            """
+            Implementar a atualização de um Material
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_update('MATRIAL', db_getfields('MATRIAL'), input('INSIRA O VALOR PARA O QUAL DESEJA ALTERAR: '), db_getfields('MATRIAL'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
         elif op == "3":
-            lista_de_materiais = remover_material(lista_de_materiais)
+            """
+            Implementar a eliminação de um Material
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_delete('MATRIAL', db_getfields('MATRIAL'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
-            """TODO Implementar listagem de material"""
-            imprime_lista_de_materiais(lista_de_materiais)
-            pause()
+            """
+            Implementar a listagem dos Materiais existentes
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            imprime_lista(db_getfields('MATRIAL', False), db_show('MATRIAL', False))
         
         elif op == "5":
-            """TODO Implementar criação de serviço"""
-            novo_serviço = cria_novo_serviço()
-            lista_de_serviços.append(novo_serviço)
-
+            """
+            Implementar a criação de um serviço
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_add_servico(input('servico: '), input('preco: '), input('observacao: '))
         elif op == "6":
-            """TODO Implementar atualização de serviço"""
-            pass
-
+            """
+            Implementar a atualização de um serviço
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_update('SERVICO', db_getfields('SERVICO'), input('INSIRA O VALOR PARA O QUAL DESEJA ALTERAR: '), db_getfields('SERVICO'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
         elif op == "7":
-            lista_de_serviços = remover_serviço(lista_de_serviços)
+            """
+            Implementar a eliminação de um serviço
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            db_delete('SERVICO', db_getfields('SERVICO'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "8":
-            """TODO Implementar listagem de serviço"""
-            imprime_lista_de_serviços(lista_de_serviços)
-            pause()
-
+            """
+            Implementar a listagem dos serviços existentes
+            TODO: Implementaçao da verificação de dados invalidos
+            """
+            imprime_lista(db_getfields('SERVICO', False), db_show('SERVICO', False))
 if __name__ == "__main__":
     menu()

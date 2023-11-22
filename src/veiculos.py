@@ -1,39 +1,21 @@
-from io_terminal import imprime_lista
 
-nome_ficheiro_lista_de_veiculos = "lista_de_veiculos.pk"
-
-def cria_novo_veiculo():
-    """Pede ao utilizador para introduzir um novo veiculo
-
-    :return: dicionario com um veiculo na forma
-        {"marca": <<marca>>, "matricula": <<matricula>>, ...}
+from bd import connector
+# ------------------------------
+def db_add_veiculo(v_marca, v_modelo, v_matricula, v_combustivel, v_ano, v_kms, v_cilindrada, v_cor, v_observacoes):
     """
-    
-    matricula = input("> Matricula: ").upper()
-    marca = input("> Marca: ").capitalize()
-    modelo = input("> Modelo: ").capitalize()
-    ano = input("> Ano: ")
-    combustivel = input("> Combustivel: ").lower()
-    kms = input("> Kms: ")
-    cilindrada = input("> Cilindrada: ")
-    cor = input("> Cor: ").lower()
-    observacoes = input("> Observações: ")
-
-    veiculo = {
-               "marca": marca,
-               "modelo": modelo,
-               "matricula": matricula,
-               "ano": ano,
-               "combustivel": combustivel,
-               "kms": kms,
-               "cilindrada": cilindrada,
-               "cor": cor,
-               "observacoes": observacoes
-              }
-
-    return veiculo
-
-def imprime_lista_de_veiculos(lista_de_veiculos):
-    """TODO: documentação"""
-
-    imprime_lista(cabecalho="Lista de Veiculos", lista=lista_de_veiculos)
+    Funcionalidade para adicionar um veiculo na base de dados.
+    Args:
+    v_marca (str): Marca do carro.
+    v_modelo (str): Modelo do carro.
+    v_matricula (str): Matricula do carro.
+    v_combustivel (str): Combustival que o carro utiliza.
+    v_ano (str): Ano de fabrico do carro.
+    v_kms (str): quantidade de kilometros que o carro tem.
+    v_cilindrada (str): celindrada correspondente ao carro
+    v_cor (str): Cor do carro.
+    v_observacoes (str): Alguma observação extra do carro.
+    """
+    conn, cursor = connector()
+    cursor.execute('INSERT INTO VEICULO (marca, modelo, matricula, combustivel, ano, kms, cilindrada, cor, observacoes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', (v_marca, v_modelo, v_matricula, v_combustivel, v_ano, v_kms, v_cilindrada, v_cor, v_observacoes))
+    conn.commit()
+    conn.close()
