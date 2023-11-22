@@ -33,7 +33,14 @@ def imprime_lista(cabecalho, linhas):
         print(tabulate(lista_a_imprimir, headers="firstrow", tablefmt='psql'))
     pause()
 def pause():
-    """Faz uma pausa no programa e espera que o utilizador pressione ENTER"""
+    """
+    Faz uma pausa no programa e espera que o utilizador pressione ENTER.
+
+    Esta função é geralmente utilizada para manter a janela do terminal aberta
+    após a execução de um script, permitindo que o utilizador visualize os resultados.
+
+    :return: Não retorna nada.
+    """
     input("Pressione ENTER para continuar...")
 def pergunta_id(questao, lista, mostra_lista=False):
     """     
