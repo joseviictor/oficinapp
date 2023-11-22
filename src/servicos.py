@@ -1,34 +1,17 @@
-from io_terminal import imprime_lista, pergunta_id
 
-nome_ficheiro_lista_de_serviços = "lista_de_serviços.pk"
-
-def cria_novo_serviço():
-    """Pedir os dados de um novo material para a lista de serviços
-
-    :return: dicionario com o novo serviço, {"nome": <<nome>>, "custo": <<nif>>, ...}
+from bd import connector
+# ------------------------------
+def db_add_servico(v_servico, v_preco, v_observacao):
     """
-    serviço = input("> Serviço: ").capitalize()
-    preço = input("> Preço de venda: ")
-    observação = input("> Observação: ").capitalize()
-        
-    serviço = {"serviço": serviço,
-                "preço": preço,
-                "observação": observação
-               }
-
-    return serviço
-
-def atualizar_serviço(lista_de_serviços):
-    pass
-
-def remover_serviço(lista_de_serviços):
-    id_serviço = pergunta_id(questao="> ID do material: ", lista=lista_de_serviços, mostra_lista=True)
-    if id_serviço is not None:
-        lista_de_serviços.pop(id_serviço)
-
-    return lista_de_serviços
-
-def imprime_lista_de_serviços(lista_de_serviços):
-    """TODO: documentação"""
+    Inserir um novo servico na base de dados
     
-    imprime_lista(cabecalho="Lista de serviços", lista=lista_de_serviços)
+    Args:
+    v_servico (str): Nome do servico a ser inserido.
+    v_preco (float): Preço do servico a ser inserido.
+    v_observacao (str): Observação do servico a ser inserido.
+    """
+    
+    conn, cursor = connector()
+    cursor.execute('INSERT INTO MATRIAL (servico, preco, observacao) VALUES (?, ?, ?)', (v_servico, v_preco, v_observacao))
+    conn.commit()
+    conn.close()

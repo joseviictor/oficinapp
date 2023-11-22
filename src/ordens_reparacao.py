@@ -1,34 +1,16 @@
-from datetime import date
-from io_terminal import imprime_lista, pergunta_id
 
-nome_ficheiro_lista_de_or = "lista_de_or.pk"
-
-def cria_nova_or(lista_de_clientes, lista_de_veiculos):
-    """Pede ao utilizador para introduzir uma nova ordem de reparação
-
-    :return: dicionario com uma OR
+from bd import connector
+# ------------------------------
+def db_add_ordem_reparacoes(v_id_cliente_or, v_id_veiculo_or, v_data_or, v_serviços):
     """
-    lista_serviços = []
-    id_cliente = pergunta_id(questao="> ID do cliente: ", lista=lista_de_clientes, mostra_lista=True)
-    id_veiculo = pergunta_id(questao="> ID do veiculo: ", lista=lista_de_veiculos, mostra_lista=True)
-
-    while True:
-        id_serviço = input("> ID do serviço a realizar: ")
-        if len(id_serviço) > 0:
-            lista_serviços.append(id_serviço)
-        else:
-            break
-    
-    ordem_reparacao = {
-              "cliente": id_cliente,
-              "veiculo": id_veiculo,
-              "data": date.today(),
-              "serviços": lista_serviços
-              }
-
-    return ordem_reparacao
-
-def imprime_lista_de_or(lista_de_or):
-    """TODO: documentação"""
-
-    imprime_lista(cabecalho="Lista de Ordens de Reparação", lista=lista_de_or)
+    Funcionalidade para adicionar uma ordem de reparações na base de dados.
+    Args:
+    v_id_cliente_or (str): ID do cliente que realizou a ordem de reparações.
+    v_id_veiculo_or (str): ID do veículo da ordem de reparações.
+    v_data_or (str): Data em que foi realizada a ordem de reparações.
+    v_serviços (str): descreve o serviço.
+    """
+    conn, cursor = connector()
+    cursor.execute('INSERT INTO ORDEM_REPARACOES (id_cliente_or, id_veiculo_or, data_or, serviços) VALUES (?, ?, ?, ?)', (v_id_cliente_or, v_id_veiculo_or, v_data_or, v_serviços))
+    conn.commit()
+    conn.close()

@@ -1,39 +1,19 @@
-from io_terminal import imprime_lista, pergunta_id
 
-nome_ficheiro_lista_de_clientes = "lista_de_clientes.pk"
-
-def cria_novo_cliente():
-    """Pedir os dados de um novo cliente
-
-    :return: dicionario com o novo cliente, {"nome": <<nome>>, "nif": <<nif>>, ...}
+from bd import connector
+# ------------------------------
+def db_add_Cliente(v_nome, v_nif, v_cc, v_dob, v_morada, v_telefone, v_email):
     """
-    nome = input("> Nome: ").capitalize()
-    nif = input("> NIF: ").upper()
-    cc = input("> CC: ").upper()
-    dob = input("> Data de Nascimento: ")
-    morada = input("> Morada: ")
-    telefone = input("> Telefone: ")
-    email = input("> Email: ").lower()
-        
-    cliente = {"nome": nome,
-               "nif": nif,
-                "cc": cc,
-                "dob": dob,
-                "morada": morada,
-                "telefone": telefone,
-                "email": email
-               }
-
-    return cliente
-
-def remover_cliente(lista_de_clientes):
-    id_cliente = pergunta_id(questao="> ID do cliente: ", lista=lista_de_clientes, mostra_lista=True)
-    if id_cliente is not None:
-        lista_de_clientes.pop(id_cliente)
-
-    return lista_de_clientes
-
-def imprime_lista_de_clientes(lista_de_clientes):
-    """TODO: documentação"""
-    
-    imprime_lista(cabecalho="Lista de clientes", lista=lista_de_clientes)
+    Funcionalidade para adicionar um Cliente na base de dados.
+    Args:
+    v_nome (str): Nome do cliente a ser inserido.
+    v_nif (str): NIF do cliente a ser inserido.
+    v_cc (str): Cartão de cidadão do cliente a ser inserido.
+    v_dob (str): Data de nascimento do cliente a ser inserido.
+    v_morada (str): Morada do cliente a ser inserido.
+    v_telefone (str): Telefone do cliente a ser inserido.
+    v_email (str): Email do cliente a ser inserido.
+    """
+    conn, cursor = connector()
+    cursor.execute('INSERT INTO CLIENTE (nome, nif, cc, dob, morada, telefone, email) VALUES (?, ?, ?, ?, ?, ?, ?)', (v_nome, v_nif, v_cc, v_dob, v_morada, v_telefone, v_email))
+    conn.commit()
+    conn.close()
