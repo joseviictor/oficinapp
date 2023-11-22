@@ -5,7 +5,7 @@ from io_terminal import imprime_lista, pause
 def connector():
     """
     Implementa a listagem dos Clientes existentes
-    Args:
+  
     Returns:
     conn: conector ao ficheiro
     cursor: conector para a execução de comandos
@@ -16,7 +16,13 @@ def connector():
 # ------------------------------
 def db_creator():
     """
-    Implementa a criação da base de dados caso nao exista
+    Implementa a criação da base de dados caso não exista.
+
+    Esta função cria tabelas na base de dados se elas não existirem. As tabelas criadas
+    são CLIENTE, FATURA, MATERIAL, ORDEM_REPARACOES, SERVICO e VEICULO.
+
+    :return: Não retorna nada.
+    
     """
     conn, cursor = connector()
     
@@ -32,7 +38,13 @@ def db_creator():
 # ------------------------------
 def db_drop():
     """
-    Implementa a funcionalida de apagar todas as tabelas criadas.
+    Implementa a funcionalidade de apagar todas as tabelas criadas na base de dados.
+
+    Esta função executa comandos SQL para remover todas as tabelas: CLIENTE, FATURA, MATERIAL,
+    ORDEM_REPARACOES, SERVICO e VEICULO.
+
+    Returns:
+        None. A função realiza a remoção das tabelas na base de dados.
     """
     conn, cursor = connector()
     cursor.execute(f'DROP TABLE IF EXISTS CLIENTE;')
@@ -47,8 +59,12 @@ def db_drop():
 def db_clearTable(v_table_name):
     """
     Implementa a funcionalidade de apagar todos os dados da tabela escolhida.
+
     Args:
-    v_table_name (str): Nome da tabela que irá ser limpa.
+        v_table_name (str): Nome da tabela que será limpa.
+
+    Returns:
+        None. A função realiza a remoção de todos os dados da tabela.
     """
     conn, cursor = connector()
     cursor.execute('DELETE FROM ' + v_table_name)

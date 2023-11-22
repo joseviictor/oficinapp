@@ -13,6 +13,9 @@ def db_add_material(v_material, v_custo, v_preço, v_fornecedor, v_telefone, v_e
         v_telefone (str): Telefone do fornecedor.
         v_email (str): Email do fornecedor.
         v_part_number (str): Part number do material.
+        
+     Returns:
+        None. A função realiza a inserção na base de dados.
     """
     
     conn, cursor = connector()

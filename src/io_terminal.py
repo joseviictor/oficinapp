@@ -15,11 +15,12 @@ def imprime_lista(cabecalho, linhas):
     1   ...      ...
     ==  ======  ======
 
-    :param cabecalho: Lista contendo o cabeçalho para a listagem.
-    :type cabecalho: list
-    :param lista: Lista a ser impressa.
-    :type lista: list
-    
+    Args:
+        cabecalho (list): Lista contendo o cabeçalho para a listagem.
+        lista (list): Lista a ser impressa.
+        
+    Returns:
+        str: A tabela formatada.
     """
     #print(cabecalho)
     lista = [dict(zip(cabecalho, linha)) for linha in linhas]
@@ -32,6 +33,7 @@ def imprime_lista(cabecalho, linhas):
         lista_a_imprimir.extend([[id] + list(d.values()) for id, d in enumerate(lista)])
         print(tabulate(lista_a_imprimir, headers="firstrow", tablefmt='psql'))
     pause()
+    
 def pause():
     """
     Faz uma pausa no programa e espera que o utilizador pressione ENTER.
@@ -39,7 +41,7 @@ def pause():
     Esta função é geralmente utilizada para manter a janela do terminal aberta
     após a execução de um script, permitindo que o utilizador visualize os resultados.
 
-    :return: Não retorna nada.
+    Returns: Não retorna nada.
     """
     input("Pressione ENTER para continuar...")
 def pergunta_id(questao, lista, mostra_lista=False):
@@ -48,14 +50,13 @@ def pergunta_id(questao, lista, mostra_lista=False):
 
     Se `mostra_lista` for True, imprime a lista na forma de uma tabela antes de fazer a pergunta.
 
-    :param questao: A pergunta a ser exibida ao utilizador.
-    :type questao: str
-    :param lista: Lista de itens a partir da qual o utilizador escolherá um ID.
-    :type lista: list
-    :param mostra_lista: Sinaliza se a lista deve ser impressa antes da pergunta.
-    :type mostra_lista: bool
-    :return: O ID selecionado pelo utilizador.
-    :rtype: int
+    Args:
+        questao (str): A pergunta a ser exibida ao utilizador.
+        lista (list): Lista de itens a partir da qual o utilizador escolherá um ID.
+        mostra_lista (bool): Sinaliza se a lista deve ser impressa antes da pergunta.
+
+    Returns:
+        int: O ID selecionado pelo utilizador.
     """
     if mostra_lista:
         imprime_lista(cabecalho="", lista=lista)
