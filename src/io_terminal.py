@@ -1,18 +1,25 @@
 
 from tabulate import tabulate
 def imprime_lista(cabecalho, linhas):
-    """Imprime a :attr:`lista` na forma de uma tabela com um cabeçalho
+    """
+    Imprime a lista na forma de uma tabela com um cabeçalho.
+
     Recebe uma lista na forma [{"atrib1": valor1, "atrib2": valor2, ...},
-    {"atrib1": valor1, "atrib2": valor2, ...}, ...] e imprime no terminal uma tabela
-    na forma
+    {"atrib1": valor1, "atrib2": valor2, ...}, ...] e imprime no terminal uma tabela.
+
+    Exemplo:
     ==  ======  ======
     id  atrib1  atrib2
     ==  ======  ======
     0   valor1  valor2
     1   ...      ...
     ==  ======  ======
-    :param cabecalho: Cabecalho para a listagem
-    :param lista: Lista a ser impressa
+
+    :param cabecalho: Lista contendo o cabeçalho para a listagem.
+    :type cabecalho: list
+    :param lista: Lista a ser impressa.
+    :type lista: list
+    
     """
     #print(cabecalho)
     lista = [dict(zip(cabecalho, linha)) for linha in linhas]
