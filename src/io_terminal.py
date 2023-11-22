@@ -29,11 +29,18 @@ def pause():
     """Faz uma pausa no programa e espera que o utilizador pressione ENTER"""
     input("Pressione ENTER para continuar...")
 def pergunta_id(questao, lista, mostra_lista=False):
-    """documentação
-    :param questao:
-    :param lista:
-    :param mostra_lista:
-    :return:
+    """     
+    Realiza uma pergunta ao utilizador para selecionar um ID da lista.
+
+    Se `mostra_lista` for True, imprime a lista na forma de uma tabela antes de fazer a pergunta.
+
+    :param questao: A pergunta a ser exibida ao utilizador.
+    :param lista: Lista de itens a partir da qual o utilizador escolherá um ID.
+    :param mostra_lista: Sinaliza se a lista deve ser impressa antes da pergunta.
+    :type mostra_lista: bool
+    :return: O ID selecionado pelo utilizador.
+    :rtype: int
+    
     """
     if mostra_lista:
         imprime_lista(cabecalho="", lista=lista)
