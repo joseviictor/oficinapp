@@ -5,8 +5,8 @@ def db_add_fatura(v_id_veiculo_fatura, v_dataFatura):
     """
     Função para adicionar faturas na base de dados.
     Args:
-    v_id_veiculo_fatura (int) : ID do veículo da fatura.
-    v_dataFatura (str) : Data da fatura.
+        v_id_veiculo_fatura (int) : ID do veículo da fatura.
+        v_dataFatura (str) : Data da fatura.
     """
     
     conn, cursor = connector()
