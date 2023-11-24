@@ -143,13 +143,4 @@ def db_delete(v_tableName, v_condition_field, v_condition_operator, v_condition_
     cursor.execute('DELETE FROM ' + v_tableName + ' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'' )
     conn.commit()
     conn.close()
-if __name__ == "__main__":
-    #db_drop()
-    
-    #db_creator()
-    
-    #db_getfields('CLIENTE')
-    #db_clearTable('CLIENTE')
-    #db_show('CLIENTE')
-    #print(db_getfields('CLIENTE', False), db_show('CLIENTE', False))
-    imprime_lista(db_getfields('CLIENTE', False), db_show('CLIENTE', False))
+
