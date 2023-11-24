@@ -139,7 +139,7 @@ def db_getfields(v_nome_tabela, mostra_pergunta=True):
     else:
         return nomes_colunas
 # ------------------------------------------------------------
-def db_show(v_tableName, return_value=True):
+def db_show(v_tableName, return_value=True, pause_op=True):
     """
     Implementa uma funcionalidade para exibir ou retornar todos os dados da tabela escolhida.
 
@@ -158,7 +158,8 @@ def db_show(v_tableName, return_value=True):
     if return_value:
         for linha in dados:
             print(linha)
-        pause()
+        if pause_op:
+            pause()
     else:
         return dados
 
@@ -196,3 +197,4 @@ def db_delete(v_tableName, v_condition_field, v_condition_operator, v_condition_
     cursor.execute('DELETE FROM ' + v_tableName + ' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'' )
     conn.commit()
     conn.close()
+
