@@ -197,7 +197,7 @@ def menu_fatura():
             Implementar a criação de uma Fatura
             TODO: Implementaçao da verificação de dados invalidos
             """
-            db_add_fatura(input('id_cliente_or: '), input('id_veiculo_or: '), input('data_or: '), input('serviços: '))
+            db_add_fatura(input('id_cliente_or: '), input('id_veiculo_or: '), input('data_or: '))
         elif op == "2":
             """
             Implementar a atualização de uma Fatura
@@ -249,20 +249,20 @@ def menu_produtos():
             Implementar a atualização de um Material
             TODO: Implementaçao da verificação de dados invalidos
             """
-            db_update('MATRIAL', db_getfields('MATRIAL'), input('INSIRA O VALOR PARA O QUAL DESEJA ALTERAR: '), db_getfields('MATRIAL'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
+            db_update('MATERIAL', db_getfields('MATERIAL'), input('INSIRA O VALOR PARA O QUAL DESEJA ALTERAR: '), db_getfields('MATERIAL'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
         elif op == "3":
             """
             Implementar a eliminação de um Material
             TODO: Implementaçao da verificação de dados invalidos
             """
-            db_delete('MATRIAL', db_getfields('MATRIAL'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
+            db_delete('MATERIAL', db_getfields('MATERIAL'), '=', input('INSIRA O VALOR DA CONDIÇÃO: '))
             
         elif op == "4":
             """
             Implementar a listagem dos Materiais existentes
             TODO: Implementaçao da verificação de dados invalidos
             """
-            imprime_lista(db_getfields('MATRIAL', False), db_show('MATRIAL', False))
+            imprime_lista(db_getfields('MATERIAL', False), db_show('MATERIAL', False))
         
         elif op == "5":
             """
