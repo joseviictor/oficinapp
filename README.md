@@ -18,6 +18,7 @@ Foi usada uma base fornecida pelo o docente onde foram feitas aplicadas algumas 
     O Sphinx é uma ferramenta de documentação que ajuda a organizar e formatar documentação de projetos.
 * Configuração
     Para fazer a configuração temos de usar executar o ficheiro requirements.txt
+    
         Usando o código:
         ```python
         pip install -r requirements.txt
