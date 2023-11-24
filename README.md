@@ -55,7 +55,7 @@ Este README documenta as etapas necessárias para colocar seu aplicativo em func
       .\make.bat clean
       ```
 
-      Certifique-se de ajustar os comandos conforme necessário com base no sistema operacional que você está utilizando.
+      Certifique-se de ajustar os comandos conforme necessário com base no sistema operacional que estás a utilizar.
 
   4. Por fim, gere a documentação HTML usando o seguinte comando:
 
@@ -65,7 +65,10 @@ Este README documenta as etapas necessárias para colocar seu aplicativo em func
 
   5. A documentação gerada estará disponível na pasta `docs\_build\html`. Abra o arquivo `index.html` em um navegador para visualizar a documentação.
 
-  Lembre-se de que todos esses comandos devem ser executados na pasta raiz do projeto.
+  Lembrar que os dois primeiros comandos devem ser executados na pasta raiz do projeto.
+  Os ultimos dois devem ser feitos na pasta docs que foi criada no segundo comandos
+
+  PS.: Só sera preciso 3. 4. caso altere alguma documentação o 2. só sera executado caso crie um outro ficheiro
 
 ### Diretrizes de Contribuição
 
