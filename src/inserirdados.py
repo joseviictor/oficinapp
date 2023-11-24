@@ -10,7 +10,7 @@ from io_terminal import imprime_lista
 import csv
 
 def ler_ficheiro_csv(v_tabela):
-    with open(v_tabela + '.CSV', newline='') as arquivo_csv:
+    with open("resources/" + v_tabela + '.CSV', newline='') as arquivo_csv:
         leitor_csv = csv.reader(arquivo_csv, delimiter=',')
         for linha in leitor_csv:
             linhas = []
