@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="pt" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>bd module &#8212; Documentação OficinApp </title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=cb25574f" />
+    <script src="_static/documentation_options.js?v=103ffe9a"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=3b002d5c"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Pesquisar" href="search.html" />
+    <link rel="next" title="clientes module" href="clientes.html" />
+    <link rel="prev" title="Welcome to src’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-bd">
+<span id="bd-module"></span><h1>bd module<a class="headerlink" href="#module-bd" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="bd.connector">
+<span class="sig-prename descclassname"><span class="pre">bd.</span></span><span class="sig-name descname"><span class="pre">connector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bd.html#connector"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bd.connector" title="Link to this definition">¶</a></dt>
+<dd><p>Implementa a listagem dos Clientes existentes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>conector ao ficheiro
+cursor (Connection): conector para a execução de comandos</p>
+</dd>
+<dt class="field-even">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>conn (Connection)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bd.db_clearTable">
+<span class="sig-prename descclassname"><span class="pre">bd.</span></span><span class="sig-name descname"><span class="pre">db_clearTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_table_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bd.html#db_clearTable"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bd.db_clearTable" title="Link to this definition">¶</a></dt>
+<dd><p>Implementa a funcionalidade de apagar todos os dados da tabela escolhida.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v_table_name</strong> (<em>str</em>) – Nome da tabela que será limpa.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bd.db_creator">
+<span class="sig-prename descclassname"><span class="pre">bd.</span></span><span class="sig-name descname"><span class="pre">db_creator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bd.html#db_creator"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bd.db_creator" title="Link to this definition">¶</a></dt>
+<dd><p>Implementa a criação da base de dados caso não exista.</p>
+<p>Esta função cria tabelas na base de dados se elas não existirem. As tabelas criadas
+são CLIENTE, FATURA, MATERIAL, ORDEM_REPARACOES, SERVICO e VEICULO.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bd.db_delete">
+<span class="sig-prename descclassname"><span class="pre">bd.</span></span><span class="sig-name descname"><span class="pre">db_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_tableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_condition_field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_condition_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_condition_value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bd.html#db_delete"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bd.db_delete" title="Link to this definition">¶</a></dt>
+<dd><p>Implementa uma funcionalidade para apagar um registo de qualquer tabela indicada.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_tableName</strong> (<em>str</em>) – indica qual será a tabela para a execução do código.</p></li>
+<li><p><strong>v_condition_field</strong> (<em>str</em>) – indica o campo para ira ser uma condição.</p></li>
+<li><p><strong>v_condition_operator</strong> (<em>str</em>) – indica qual o operador irá ser na condução.</p></li>
+<li><p><strong>v_condition_value</strong> (<em>str</em>) – indica qual o valora da condução.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bd.db_drop">
+<span class="sig-prename descclassname"><span class="pre">bd.</span></span><span class="sig-name descname"><span class="pre">db_drop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bd.html#db_drop"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bd.db_drop" title="Link to this definition">¶</a></dt>
+<dd><p>Implementa a funcionalidade de apagar todas as tabelas criadas na base de dados.</p>
+<p>Esta função executa comandos SQL para remover todas as tabelas: CLIENTE, FATURA, MATERIAL,
+ORDEM_REPARACOES, SERVICO e VEICULO.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bd.db_getfields">
+<span class="sig-prename descclassname"><span class="pre">bd.</span></span><span class="sig-name descname"><span class="pre">db_getfields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_nome_tabela</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mostra_pergunta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bd.html#db_getfields"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bd.db_getfields" title="Link to this definition">¶</a></dt>
+<dd><p>Implementa uma funcionalidade para que seja retornada uma coluna ou a lista de colunas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_table_name</strong> (<em>str</em>) – Nome da tabela que pertencem os campos.</p></li>
+<li><p><strong>mostra_pergunta</strong> (<em>Boolean</em>) – indica se ira retornar só a coluna ou a lista.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>ou retorna o nome da coluna selecionada.
+nomes_colunas (list): ou retorna a lista das colunas da tabela.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nomes_colunas (str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bd.db_show">
+<span class="sig-prename descclassname"><span class="pre">bd.</span></span><span class="sig-name descname"><span class="pre">db_show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_tableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bd.html#db_show"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bd.db_show" title="Link to this definition">¶</a></dt>
+<dd><p>Implementa uma funcionalidade para exibir ou retornar todos os dados da tabela escolhida.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_table_name</strong> (<em>str</em>) – Nome da tabela que pertencem os campos.</p></li>
+<li><p><strong>return_value</strong> (<em>Boolean</em>) – indica se ira retornar os dados ou se só os irá apresentar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>lista de dados dentro da tabela escolhida.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dados (list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bd.db_update">
+<span class="sig-prename descclassname"><span class="pre">bd.</span></span><span class="sig-name descname"><span class="pre">db_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_tableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_define_field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_define_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_condition_field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_condition_operator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_condition_value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bd.html#db_update"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bd.db_update" title="Link to this definition">¶</a></dt>
+<dd><p>Implementa uma funcionalidade para atualizar qualquer tabela indicada.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_tableName</strong> (<em>str</em>) – indica qual será a tabela para a execução do código.</p></li>
+<li><p><strong>v_define_field</strong> (<em>str</em>) – indica qual o camplo que irá sofrer alteração.</p></li>
+<li><p><strong>v_define_value</strong> (<em>str</em>) – indica qual será o valor para o qual irá ser alterado.</p></li>
+<li><p><strong>v_condition_field</strong> (<em>str</em>) – indica o campo para ira ser uma condição.</p></li>
+<li><p><strong>v_condition_operator</strong> (<em>str</em>) – indica qual o operador irá ser na condução.</p></li>
+<li><p><strong>v_condition_value</strong> (<em>str</em>) – indica qual o valora da condução.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">OficinApp</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegação</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">bd module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bd.connector"><code class="docutils literal notranslate"><span class="pre">connector()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bd.db_clearTable"><code class="docutils literal notranslate"><span class="pre">db_clearTable()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bd.db_creator"><code class="docutils literal notranslate"><span class="pre">db_creator()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bd.db_delete"><code class="docutils literal notranslate"><span class="pre">db_delete()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bd.db_drop"><code class="docutils literal notranslate"><span class="pre">db_drop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bd.db_getfields"><code class="docutils literal notranslate"><span class="pre">db_getfields()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bd.db_show"><code class="docutils literal notranslate"><span class="pre">db_show()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bd.db_update"><code class="docutils literal notranslate"><span class="pre">db_update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clientes.html">clientes module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faturas.html">faturas module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_terminal.html">io_terminal module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materiais.html">materiais module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ordens_reparacao.html">ordens_reparacao module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servicos.html">servicos module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="veiculos.html">veiculos module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="capítulo anterior">Welcome to src’s documentation!</a></li>
+      <li>Next: <a href="clientes.html" title="próximo capítulo">clientes module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Pesquisa rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, José Santos, Marco Figueira, Rodrigo Pimenta.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/bd.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
