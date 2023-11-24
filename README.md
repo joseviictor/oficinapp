@@ -32,41 +32,41 @@ Foi usada uma base fornecida pelo o docente onde foram feitas aplicadas algumas 
 
 * Posteriormente deve configurar o ficheiro `doc\config.py` com as alterações que entenda necessárias (sphinx)
 
-Para executar o sphinx
+    Para executar o sphinx
 
 ### Diretrizes de contribuição
 
 
 * Testes de Escrita:
 
-Antes de submeter uma contribuição, certifique-se de testar e validar as suas alterações. Isso inclui verificar a sintaxe, corrigir erros e garantir que o código seja executado conforme esperado.
+    Antes de submeter uma contribuição, certifique-se de testar e validar as suas alterações. Isso inclui verificar a sintaxe, corrigir erros e garantir que o código seja executado conforme esperado.
 
 * Padrões de Codificação:
 
-Siga as diretrizes do PEP 8 para Python.
-Utilize comentários descritivos e significativos no código.
-Garanta a legibilidade do código e evite alterações desnecessárias em espaços em branco.
+    Siga as diretrizes do PEP 8 para Python.
+    Utilize comentários descritivos e significativos no código.
+    Garanta a legibilidade do código e evite alterações desnecessárias em espaços em branco.
 
 * Solicitações de Pull:
 
-Descreva detalhadamente as alterações realizadas na solicitação de pull.
-Certifique-se de que sua solicitação de pull está associada a um problema existente ou crie um novo para discussão.
+    Descreva detalhadamente as alterações realizadas na solicitação de pull.
+    Certifique-se de que sua solicitação de pull está associada a um problema existente ou crie um novo para discussão.
 
 * Revisão de Código:
 
-Todas as contribuições serão revistas por outros colaboradores. Certifique-se de que o seu código esteja claro, bem documentado e siga as melhores práticas. Aceite feedback construtivo durante o processo de revisão.
+    Todas as contribuições serão revistas por outros colaboradores. Certifique-se de que o seu código esteja claro, bem documentado e siga as melhores práticas. Aceite feedback construtivo durante o processo de revisão.
 
 * Processo de Revisão:
 
-As contribuições serão revisadas por membros do time antes da fusão.
-Comentários construtivos serão fornecidos para melhorias, se necessário.
+    As contribuições serão revisadas por membros do time antes da fusão.
+    Comentários construtivos serão fornecidos para melhorias, se necessário.
 
 * Outras Diretrizes:
 
-Respeite as convenções de nomenclatura existentes.
-Mantenha o foco nas funcionalidades ou correções relacionadas ao escopo do projeto.
-Seja respeitoso e colaborativo com outros membros da comunidade.
-Informe-se sobre as práticas específicas de ramificação e fluxo de trabalho adotadas neste repositório.
+    Respeite as convenções de nomenclatura existentes.
+    Mantenha o foco nas funcionalidades ou correções relacionadas ao escopo do projeto.
+    Seja respeitoso e colaborativo com outros membros da comunidade.
+    Informe-se sobre as práticas específicas de ramificação e fluxo de trabalho adotadas neste repositório.
 
 ### Com quem devo falar?
 
