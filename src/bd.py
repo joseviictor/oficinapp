@@ -1,4 +1,3 @@
-
 import sqlite3
 from io_terminal import imprime_lista, pause
 # ------------------------------------------------------------
@@ -119,6 +118,7 @@ def db_clearTable(v_table_name):
 def db_getfields(v_nome_tabela, mostra_pergunta=True):
     """
     Implementa uma funcionalidade para que seja retornada uma coluna ou a lista de colunas.
+
     Args:
         v_table_name (str): Nome da tabela que pertencem os campos.
         mostra_pergunta (Boolean): indica se ira retornar só a coluna ou a lista.
@@ -126,6 +126,7 @@ def db_getfields(v_nome_tabela, mostra_pergunta=True):
         nomes_colunas (str): ou retorna o nome da coluna selecionada.
         nomes_colunas (list): ou retorna a lista das colunas da tabela.
     """
+    
     conn, cursor = connector()
     cursor.execute(f"PRAGMA table_info({v_nome_tabela});")
     nomes_colunas = [coluna[1] for coluna in cursor.fetchall()]
@@ -140,13 +141,15 @@ def db_getfields(v_nome_tabela, mostra_pergunta=True):
 # ------------------------------------------------------------
 def db_show(v_tableName, return_value=True):
     """
-    Implementa uma funcionalidade para exibir ou retornar todos os dados da tabela escolhida
+    Implementa uma funcionalidade para exibir ou retornar todos os dados da tabela escolhida.
+
     Args:
         v_table_name (str): Nome da tabela que pertencem os campos.
         return_value (Boolean): indica se ira retornar os dados ou se só os irá apresentar 
     Returns:
         dados (list): lista de dados dentro da tabela escolhida.
     """
+
     conn, cursor = connector()
     cursor.execute('SELECT * FROM ' + v_tableName)
     dados = cursor.fetchall()
@@ -163,7 +166,8 @@ def db_show(v_tableName, return_value=True):
 # ------------------------------
 def db_update(v_tableName, v_define_field, v_define_value, v_condition_field, v_condition_operator, v_condition_value):
     """
-    Implementa uma funcionalidade para atualizar qualquer tabela indicada
+    Implementa uma funcionalidade para atualizar qualquer tabela indicada.
+
     Args:
         v_tableName (str): indica qual será a tabela para a execução do código.
         v_define_field (str): indica qual o camplo que irá sofrer alteração.
@@ -179,16 +183,16 @@ def db_update(v_tableName, v_define_field, v_define_value, v_condition_field, v_
 # ------------------------------
 def db_delete(v_tableName, v_condition_field, v_condition_operator, v_condition_value):
     """
-    Implementa uma funcionalidade para apagar um registo de qualquer tabela indicada
+    Implementa uma funcionalidade para apagar um registo de qualquer tabela indicada.
+    
     Args:
         v_tableName (str): indica qual será a tabela para a execução do código.
         v_condition_field (str): indica o campo para ira ser uma condição.
         v_condition_operator (str): indica qual o operador irá ser na condução.
         v_condition_value (str): indica qual o valora da condução.
     """
+    
     conn, cursor = connector()
     cursor.execute('DELETE FROM ' + v_tableName + ' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'' )
     conn.commit()
     conn.close()
-
-  

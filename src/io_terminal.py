@@ -23,6 +23,7 @@ def imprime_lista(cabecalho, linhas):
        lista_a_imprimir (str): A tabela formatada.
        
     """
+    
     #print(cabecalho)
     lista = [dict(zip(cabecalho, linha)) for linha in linhas]
     if (len(lista) == 0):
@@ -42,8 +43,8 @@ def pause():
     Esta função é geralmente utilizada para manter a janela do terminal aberta
     após a execução de um script, permitindo que o utilizador visualize os resultados.
     
-    
     """
+
     input("Pressione ENTER para continuar...")
 def pergunta_id(questao, lista, mostra_lista=False):
     """
@@ -61,6 +62,7 @@ def pergunta_id(questao, lista, mostra_lista=False):
         lista (id): Mensagem com o tamanho dos ids admitidos
         
     """
+
     if mostra_lista:
         imprime_lista(cabecalho="", lista=lista)
     while True:
