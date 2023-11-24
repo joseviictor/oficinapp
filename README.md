@@ -28,11 +28,18 @@ Este README documenta as etapas necessárias para colocar seu aplicativo em func
     * Sphinx
 
 * **Configuração de Base de Dados...**
+  * Para termos dados no nosso programa, é necessário executar o ficheiro `inserirdados.py`.
+   * Esta classe irá ler os ficheiros que contêm dados. Por exemplo:
+    ```python
+    ler_ficheiro_csv('CLIENTE')
+    ```
+    O nome do ficheiro tem de concidir com o nome aqui inserido
+
+      
 
 #### Documentação
 
-* Posteriormente deve configurar o ficheiro `doc\config.py` com as alterações que entenda necessárias (sphinx).
-
+* Posteriormente deve configurar o ficheiro `doc\config.py` com as alterações que entenda necessárias (sphinx)
   **Tutorial de Criação da Documentação com Sphinx:**
 
   1. Certifique-se de que você está na raiz do projeto e que o Sphinx está instalado.
