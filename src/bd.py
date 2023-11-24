@@ -6,9 +6,10 @@ def connector():
     """
     Implementa a listagem dos Clientes existentes
   
-    Rreturns:
+    Returns:
         conn (Connection): conector ao ficheiro
         cursor (Connection): conector para a execução de comandos
+        
     """
     conn = sqlite3.connect('resources/OFICINA.db')
     cursor = conn.cursor()
@@ -19,8 +20,7 @@ def db_creator():
     Implementa a criação da base de dados caso não exista.
 
     Esta função cria tabelas na base de dados se elas não existirem. As tabelas criadas
-    são CLIENTE, FATURA, MATERIAL, ORDEM_REPARACOES, SERVICO e VEICULO.
-    
+    são CLIENTE, FATURA, MATERIAL, ORDEM_REPARACOES, SERVICO e VEICULO.    
     """
     conn, cursor = connector()
     
@@ -58,7 +58,6 @@ def db_clearTable(v_table_name):
 
     Args:
         v_table_name (str): Nome da tabela que será limpa.
-
     """
     conn, cursor = connector()
     cursor.execute('DELETE FROM ' + v_table_name)
@@ -75,6 +74,7 @@ def db_getfields(v_nome_tabela, mostra_pergunta=True):
     Returns:
         nomes_colunas (str): ou retorna o nome da coluna selecionada.
         nomes_colunas (list): ou retorna a lista das colunas da tabela.
+        
     """
     conn, cursor = connector()
     cursor.execute(f"PRAGMA table_info({v_nome_tabela});")
@@ -96,6 +96,7 @@ def db_show(v_tableName, return_value=True):
         return_value (Boolean): indica se ira retornar os dados ou se só os irá apresentar 
     Returns:
         dados (list): lista de dados dentro da tabela escolhida.
+        
     """
     conn, cursor = connector()
     cursor.execute('SELECT * FROM ' + v_tableName)
@@ -121,6 +122,7 @@ def db_update(v_tableName, v_define_field, v_define_value, v_condition_field, v_
         v_condition_field (str): indica o campo para ira ser uma condição.
         v_condition_operator (str): indica qual o operador irá ser na condução.
         v_condition_value (str): indica qual o valora da condução.
+        
     """
     conn, cursor = connector()
     cursor.execute('UPDATE ' + v_tableName + ' SET ' + v_define_field + ' = ' + '\'' + v_define_value + '\'' +' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'')
@@ -135,6 +137,7 @@ def db_delete(v_tableName, v_condition_field, v_condition_operator, v_condition_
         v_condition_field (str): indica o campo para ira ser uma condição.
         v_condition_operator (str): indica qual o operador irá ser na condução.
         v_condition_value (str): indica qual o valora da condução.
+        
     """
     conn, cursor = connector()
     cursor.execute('DELETE FROM ' + v_tableName + ' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'' )
