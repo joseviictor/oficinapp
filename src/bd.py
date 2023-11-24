@@ -197,3 +197,4 @@ def db_delete(v_tableName, v_condition_field, v_condition_operator, v_condition_
     cursor.execute('DELETE FROM ' + v_tableName + ' WHERE ' + v_condition_field + ' ' + v_condition_operator + '\'' + v_condition_value + '\'' )
     conn.commit()
     conn.close()
+
