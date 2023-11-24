@@ -19,7 +19,7 @@ Foi usada uma base fornecida pelo o docente onde foram feitas aplicadas algumas 
 * Configuração
     Para fazer a configuração temos de usar executar o ficheiro requirements.txt
         Usando o código:
-        ```bash
+        ```python
         pip install -r requirements.txt
         ```
 * Dependências
