@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="pt" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>io_terminal module &#8212; Documentação OficinApp </title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=cb25574f" />
+    <script src="_static/documentation_options.js?v=103ffe9a"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=3b002d5c"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Pesquisar" href="search.html" />
+    <link rel="next" title="main module" href="main.html" />
+    <link rel="prev" title="faturas module" href="faturas.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-io_terminal">
+<span id="io-terminal-module"></span><h1>io_terminal module<a class="headerlink" href="#module-io_terminal" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="io_terminal.imprime_lista">
+<span class="sig-prename descclassname"><span class="pre">io_terminal.</span></span><span class="sig-name descname"><span class="pre">imprime_lista</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cabecalho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linhas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/io_terminal.html#imprime_lista"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#io_terminal.imprime_lista" title="Link to this definition">¶</a></dt>
+<dd><p>Imprime a lista na forma de uma tabela com um cabeçalho.</p>
+<p>Recebe uma lista na forma [{«atrib1»: valor1, «atrib2»: valor2, …},
+{«atrib1»: valor1, «atrib2»: valor2, …}, …] e imprime no terminal uma tabela.</p>
+<p>Exemplo:
+==  ======  ======
+id  atrib1  atrib2
+==  ======  ======
+0   valor1  valor2
+1   …      …
+==  ======  ======</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cabecalho</strong> (<em>list</em>) – Lista contendo o cabeçalho para a listagem.</p></li>
+<li><p><strong>lista</strong> (<em>list</em>) – Lista a ser impressa.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tabela formatada.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>lista_a_imprimir (str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_terminal.pause">
+<span class="sig-prename descclassname"><span class="pre">io_terminal.</span></span><span class="sig-name descname"><span class="pre">pause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/io_terminal.html#pause"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#io_terminal.pause" title="Link to this definition">¶</a></dt>
+<dd><p>Faz uma pausa no programa e espera que o utilizador pressione ENTER.</p>
+<p>Esta função é geralmente utilizada para manter a janela do terminal aberta
+após a execução de um script, permitindo que o utilizador visualize os resultados.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_terminal.pergunta_id">
+<span class="sig-prename descclassname"><span class="pre">io_terminal.</span></span><span class="sig-name descname"><span class="pre">pergunta_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">questao</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lista</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mostra_lista</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/io_terminal.html#pergunta_id"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#io_terminal.pergunta_id" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza uma pergunta ao utilizador para selecionar um ID da lista.</p>
+<p>Se <cite>mostra_lista</cite> for True, imprime a lista na forma de uma tabela antes de fazer a pergunta.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>questao</strong> (<em>str</em>) – A pergunta a ser exibida ao utilizador.</p></li>
+<li><p><strong>lista</strong> (<em>list</em>) – Lista de itens a partir da qual o utilizador escolherá um ID.</p></li>
+<li><p><strong>mostra_lista</strong> (<em>bool</em>) – Sinaliza se a lista deve ser impressa antes da pergunta.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>O id selecionado pelo utilizador.
+lista (id): Mensagem com o tamanho dos ids admitidos</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>id (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">OficinApp</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegação</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bd.html">bd module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clientes.html">clientes module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faturas.html">faturas module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">io_terminal module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#io_terminal.imprime_lista"><code class="docutils literal notranslate"><span class="pre">imprime_lista()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#io_terminal.pause"><code class="docutils literal notranslate"><span class="pre">pause()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#io_terminal.pergunta_id"><code class="docutils literal notranslate"><span class="pre">pergunta_id()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materiais.html">materiais module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ordens_reparacao.html">ordens_reparacao module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servicos.html">servicos module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="veiculos.html">veiculos module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="faturas.html" title="capítulo anterior">faturas module</a></li>
+      <li>Next: <a href="main.html" title="próximo capítulo">main module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Pesquisa rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, José Santos, Marco Figueira, Rodrigo Pimenta.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/io_terminal.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
