@@ -14,6 +14,7 @@ def db_add_Cliente(v_nome, v_nif, v_cc, v_dob, v_morada, v_telefone, v_email):
         v_telefone (str): Telefone do cliente a ser inserido.
         v_email (str): Email do cliente a ser inserido
         
+                
     """
     conn, cursor = connector()
     cursor.execute('INSERT INTO CLIENTE (nome, nif, cc, dob, morada, telefone, email) VALUES (?, ?, ?, ?, ?, ?, ?)', (v_nome, v_nif, v_cc, v_dob, v_morada, v_telefone, v_email))

@@ -14,6 +14,7 @@ def db_add_material(v_material, v_custo, v_preço, v_fornecedor, v_telefone, v_e
         v_email (str): Email do fornecedor.
         v_part_number (str): Part number do material.
         
+        
     """
     
     conn, cursor = connector()

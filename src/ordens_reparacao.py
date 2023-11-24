@@ -10,6 +10,7 @@ def db_add_ordem_reparacoes(v_id_cliente_or, v_id_veiculo_or, v_data_or, v_servi
         v_id_veiculo_or (str): ID do veículo da ordem de reparações.
         v_data_or (str): Data em que foi realizada a ordem de reparações.
         v_servicos (str): Descrição do serviço realizado na ordem de reparações.
+    
         
     """
     conn, cursor = connector()
