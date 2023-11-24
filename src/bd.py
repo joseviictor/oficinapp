@@ -6,7 +6,7 @@ def connector():
     """
     Implementa a listagem dos Clientes existentes
   
-    Rreturns:
+    Returns:
         conn (Connection): conector ao ficheiro
         cursor (Connection): conector para a execução de comandos
     """

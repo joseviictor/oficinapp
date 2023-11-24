@@ -20,7 +20,7 @@ def imprime_lista(cabecalho, linhas):
         lista (list): Lista a ser impressa.
         
     Returns:
-        str: A tabela formatada.
+       lista_a_imprimir (str): A tabela formatada.
     """
     #print(cabecalho)
     lista = [dict(zip(cabecalho, linha)) for linha in linhas]
@@ -40,8 +40,7 @@ def pause():
 
     Esta função é geralmente utilizada para manter a janela do terminal aberta
     após a execução de um script, permitindo que o utilizador visualize os resultados.
-
-    Returns: Não retorna nada.
+    
     """
     input("Pressione ENTER para continuar...")
 def pergunta_id(questao, lista, mostra_lista=False):
@@ -56,7 +55,8 @@ def pergunta_id(questao, lista, mostra_lista=False):
         mostra_lista (bool): Sinaliza se a lista deve ser impressa antes da pergunta.
 
     Returns:
-        int: O ID selecionado pelo utilizador.
+        id (int): O id selecionado pelo utilizador.
+        lista (id): Mensagem com o tamanho dos ids admitidos
     """
     if mostra_lista:
         imprime_lista(cabecalho="", lista=lista)
