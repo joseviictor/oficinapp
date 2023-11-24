@@ -55,7 +55,7 @@ Este README documenta as etapas necessárias para colocar seu aplicativo em func
       .\make.bat clean
       ```
 
-      Certifique-se de ajustar os comandos conforme necessário com base no sistema operacional que estás a utilizar.
+      Certifique-se de ajustar os comandos conforme necessário com base no sistema operativo que estás a utilizar.
 
   4. Por fim, gere a documentação HTML usando o seguinte comando:
 
