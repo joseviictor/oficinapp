@@ -1,6 +1,6 @@
 
 from tabulate import tabulate
-def imprime_lista(cabecalho, linhas):
+def imprime_lista(cabecalho, linhas, pause_op=True):
     """
     Imprime a lista na forma de uma tabela com um cabeçalho.
 
@@ -34,7 +34,8 @@ def imprime_lista(cabecalho, linhas):
         # dados
         lista_a_imprimir.extend([[id] + list(d.values()) for id, d in enumerate(lista)])
         print(tabulate(lista_a_imprimir, headers="firstrow", tablefmt='psql'))
-    pause()
+    if pause_op:
+        pause()
     
 def pause():
     """
