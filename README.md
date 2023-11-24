@@ -32,7 +32,40 @@ Este README documenta as etapas necessárias para colocar seu aplicativo em func
 #### Documentação
 
 * Posteriormente deve configurar o ficheiro `doc\config.py` com as alterações que entenda necessárias (sphinx).
-  * Para executar o Sphinx
+
+  **Tutorial de Criação da Documentação com Sphinx:**
+
+  1. Certifique-se de que você está na raiz do projeto e que o Sphinx está instalado.
+  
+      ```bash
+      pip install sphinx
+      ```
+
+  2. Execute o seguinte comando para gerar a estrutura inicial da documentação na pasta `docs`:
+
+      ```bash
+      sphinx-apidoc -F -a -e -o docs src/
+      ```
+
+      Isso criará os arquivos e diretórios necessários para a documentação.
+
+  3. Limpe os arquivos temporários ou antigos, se necessário:
+
+      ```bash
+      .\make.bat clean
+      ```
+
+      Certifique-se de ajustar os comandos conforme necessário com base no sistema operacional que você está utilizando.
+
+  4. Por fim, gere a documentação HTML usando o seguinte comando:
+
+      ```bash
+      .\make.bat html
+      ```
+
+  5. A documentação gerada estará disponível na pasta `docs\_build\html`. Abra o arquivo `index.html` em um navegador para visualizar a documentação.
+
+  Lembre-se de que todos esses comandos devem ser executados na pasta raiz do projeto.
 
 ### Diretrizes de Contribuição
 
