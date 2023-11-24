@@ -63,7 +63,7 @@ Este README documenta as etapas necessárias para colocar seu aplicativo em func
       .\make.bat html
       ```
 
-  5. A documentação gerada estará disponível na pasta `docs\_build\html`. Abra o arquivo `index.html` em um navegador para visualizar a documentação.
+  5. A documentação gerada estará disponível na pasta `docs\_build\html`. Abra o arquivo `index.html` em um browser para visualizar a documentação.
 
   Lembrar que os dois primeiros comandos devem ser executados na pasta raiz do projeto.
   Os ultimos dois devem ser feitos na pasta docs que foi criada no segundo comandos
